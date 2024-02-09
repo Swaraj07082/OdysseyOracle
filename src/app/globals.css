@@ -232,3 +232,45 @@ font-size: 28px;
   text-align: center;
 }
 
+
+
+.app .ql-container {
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  background: #fefcfc;
+}
+
+/* Snow Theme */
+.app .ql-snow.ql-toolbar {
+  display: block;
+  background: #eaecec;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+/* Bubble Theme */
+  .ql-editor {
+  min-height: 170px;
+  font-size: 20px;
+  
+  
+}
+
+.quill > .ql-container >.ql-editor.ql-blank::before{
+  color: #b3b3b1;
+}
+
+
+/* .ql-tooltip-editor {
+  display: none;
+}  */
+
+.quill > .ql-container.ql-snow{
+  border: none;
+}
+
+
+.quill > .ql-toolbar.ql-snow{
+  border: none;
+}
+
