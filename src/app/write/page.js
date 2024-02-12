@@ -13,6 +13,12 @@ export default function page() {
 
   return (
     <>
+
+<div className=" absolute bottom-[500px] text-[20px] right-[200px] bg-[green] w-[100px] rounded-md text-center text-[#b3b3b1]" > 
+    
+    <button >Publish</button>
+    </div>
+    
       <div className="h-[570px] flex items-left flex-col justify-around ">
         <div className="">
           <input

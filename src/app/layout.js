@@ -4,6 +4,7 @@ import Navbar from "@/Components/Navbar";
 import { ThemeContextProvider} from "@/context/ThemeContext";
 import { ThemeContext } from "styled-components";
 import ThemeProvider from "@/providers/ThemeProvider";
+import AuthProvider from "@/providers/AuthProvider";
 
 
 
@@ -19,7 +20,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        
+        <AuthProvider>
+
         <ThemeContextProvider>
           <ThemeProvider>
         <div className="container">
@@ -32,6 +34,7 @@ export default function RootLayout({ children }) {
           </ThemeProvider>
         </ThemeContextProvider>
         {/* now context and state  can be accessed by everywhere cause we have wrapped everything with context provider in layout.js */}
+        </AuthProvider>
       </body>
     </html>
   );
