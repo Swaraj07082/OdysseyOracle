@@ -1,3 +1,5 @@
+'use client'
+
 import { FaFacebook } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
@@ -8,8 +10,13 @@ import React from "react";
 
 import ToggleMenu from "./ToggleMenu";
 
+import Link from "next/link";
+import { signOut, useSession } from "next-auth/react";
+
+
 export default function Navbar() {
-  const status = "authenticated";
+
+  const {status} = useSession();
 
   return (
     <>
@@ -31,24 +38,51 @@ export default function Navbar() {
             <AiFillInstagram />
           </li>
         </ul>
+<div class="odyssey flex-[1] items-center box-border pl-[75px]">
+        <h2 >OdysseyOracle</h2>
 
-        <h2 class="odyssey flex-[1]">OdysseyOracle</h2>
+</div>
 
         <ul class="links flex	flex-[1] gap-x-6">
           <li>
             <CustomizedSwitches />{" "}
           </li>
-          <li class="login">Login</li>
+         
+{/*           
+          <Link href='/login'>
+          <li class="login">Login</li> */}
+
+
+          
+          {/* </Link> */}
+
+
+          {status === "unauthenticated" ? (
+             <>
+             <Link href={'/login'}>
+             
+             <li class="login hover:cursor-pointer" >Login</li>
+             </Link>
+           </>
+          ) : (
+            <>
+              <li class="Write">Write</li>
+             <li class="login" onClick={signOut}>Logout</li>
+
+            </>
+          )}
           <li class="homepage">Homepage</li>
           <li class="contact">Contact</li>
 
-          {status === "notauthenticated" ? (
-            <></>
+          {/* {status === "notauthenticated" ? (
+             <>
+             <li class="Write">Login</li>
+           </>
           ) : (
             <>
               <li class="Write">Write</li>
             </>
-          )}
+          )} */}
 
           <li class="about">About</li>
 

@@ -68,6 +68,10 @@ body {
     padding-left: 40px;
     padding-right: 40px;
   }
+
+  .odyssey{
+padding-left: 0px;
+  }
 }
 
 @media screen and (max-width: 768px) {
