@@ -66,7 +66,10 @@ export default function Navbar() {
            </>
           ) : (
             <>
-              <li class="Write">Write</li>
+            <Link href={'/write'}>
+            
+              <li class="Write hover:cursor-pointer">Write</li>
+            </Link>
              <li class="login" onClick={signOut}>Logout</li>
 
             </>

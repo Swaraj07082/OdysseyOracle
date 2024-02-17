@@ -6,11 +6,28 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import plus from "../../../public/plus.jpg";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function page() {
   const [open, setopen] = useState(false);
   const [value, setvalue] = useState("");
 
+  // const router = useRouter();
+
+  // const { status} = useSession();
+
+  // console.log(data,status);
+  
+  
+  // if(status === 'loading'){
+  //   return <div>Loading...</div>
+  // }
+  
+  // if(status == 'authenticated'){
+  // router.push('/')
+  // }
+  
   return (
     <>
 

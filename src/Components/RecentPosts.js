@@ -6,7 +6,22 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import { Avatar } from "@mui/material";
 
-export default function RecentPosts() {
+
+const getData = async (page) => {
+  const res = await fetch(`http://localhost:3000/api/posts?page=${page}`, {
+    cache: "no-store",
+    // by default nextjs caches your request , we dont wanna do that cause it's just a project
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed");
+  } else {
+    return res.json();
+  }
+};
+
+export default async function RecentPosts({page}) {
+  const data = await getData(page);
   return (
     <div className="flex ">
       <div className="flex-[3]">
