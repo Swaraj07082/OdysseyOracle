@@ -29,6 +29,7 @@ export default async function CategoryList() {
       </div>
       <div className="flex mt-4 flex-wrap">
         {data?.map((item) => (
+          // ?. optional chaining - will check will iterating data if it gets a undefined data it will print undefined rather than giving an error
           <div className=" flex justify-center gap-x-[10px] flex-1 text-center bg-[#57c4ff31] h-[60px] pt-[10px] mr-8 mt-6 rounded-md">
             {item.img && <Avatar src={item.img} />}
             {/* used && cause in schema we have set img in Category model as not required , so if in case img is not set then avatar should not work , that's why item.img && */}
