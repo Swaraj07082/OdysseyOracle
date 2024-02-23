@@ -5,17 +5,18 @@ import PaginationDemo from "@/Components/Pagination";
 import Footer from "@/Components/Footer";
 import StyleBlog from "@/Components/StyleBlog";
 import { useSearchParams } from "next/navigation";
+import { Pagination } from "@/Components/ui/pagination";
 
 export default function blog({ searchParams }) {
   const page = parseInt(searchParams.page) || 1;
-  // const cat = (searchParams.cat) || ""
+  const cat = searchParams.cat;
 
   return (
     <>
       {/* <Featured /> */}
       {/* <CategoryList /> */}
       <StyleBlog />
-      <RecentPosts page={page} />
+      <RecentPosts page={page} cat={cat} />
       <div className="mt-12">
         <Pagination page={page} cat={cat} />
       </div>

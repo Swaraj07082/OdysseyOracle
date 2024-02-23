@@ -8,11 +8,14 @@ import { Avatar } from "@mui/material";
 
 import PaginationDemo from "@/Components/Pagination";
 
-const getData = async (page) => {
-  const res = await fetch(`http://localhost:3000/api/posts?page=${page}`, {
-    cache: "no-store",
-    // by default nextjs caches your request , we dont wanna do that cause it's just a project
-  });
+const getData = async (page, cat) => {
+  const res = await fetch(
+    `http://localhost:3000/api/posts?page=${page}&cat=${cat || ""}`,
+    {
+      cache: "no-store",
+      // by default nextjs caches your request , we dont wanna do that cause it's just a project
+    }
+  );
 
   if (!res.ok) {
     throw new Error("Failed");
@@ -21,8 +24,10 @@ const getData = async (page) => {
   }
 };
 
-export default async function RecentPosts({ page }) {
-  const { posts, count } = await getData(page);
+export default async function RecentPosts({ page, cat }) {
+  const { posts, count } = await getData(page, cat);
+  // const count= await getData(cat);
+
   let parseddata = Array.from(posts);
 
   const POST_PER_PAGE = 2;
