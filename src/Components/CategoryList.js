@@ -22,13 +22,14 @@ export default async function CategoryList() {
   const data = await getData();
   // console.log(data);
 
+  const parsedata = Array.from(data);
   return (
     <>
       <div className=" personalcategories text-2xl mt-[35px]">
         Personal Categories
       </div>
       <div className="flex mt-4 flex-wrap">
-        {data?.map((item) => (
+        {parsedata?.map((item) => (
           // ?. optional chaining - will check will iterating data if it gets a undefined data it will print undefined rather than giving an error
           <div
             className=" flex justify-center gap-x-[10px] flex-1 text-center bg-[#57c4ff31] h-[60px] pt-[10px] mr-8 mt-6 rounded-md"

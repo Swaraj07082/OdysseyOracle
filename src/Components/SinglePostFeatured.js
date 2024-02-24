@@ -3,7 +3,9 @@ import Image from "next/image";
 import blog from "../../public/blog.jpg";
 import { Avatar } from "@mui/material";
 
-export default function SinglePostFeatured({ title, name }) {
+export default function SinglePostFeatured({ title, name , createdAt }) {
+
+  
   return (
     <>
       <div>
@@ -19,7 +21,7 @@ export default function SinglePostFeatured({ title, name }) {
 
               <div className="flex flex-col">
                 <p>{name}</p>
-                <p>8th February , 2023</p>
+                <p>{createdAt.slice(0,10)}</p>
               </div>
             </div>
           </div>

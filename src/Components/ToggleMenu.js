@@ -29,10 +29,10 @@ export default function ToggleMenu() {
         <DrawerContent>
           <DrawerHeader>
             <div class=" relative left-[100%] top-[50%] flex flex-col gap-y-8 sm:text-center ">
-              <DrawerTitle class="text-3xl">Login</DrawerTitle>
-              <DrawerTitle class="text-3xl">Home Page</DrawerTitle>
-              <DrawerTitle class="text-3xl">Contact</DrawerTitle>
-              <DrawerTitle class="text-3xl">About</DrawerTitle>
+              <DrawerTitle class="text-3xl text-white">Login</DrawerTitle>
+              <DrawerTitle class="text-3xl text-white">Home Page</DrawerTitle>
+              <DrawerTitle class="text-3xl text-white">Contact</DrawerTitle>
+              <DrawerTitle class="text-3xl text-white">About</DrawerTitle>
             </div>
 
             {/* <DrawerTitle>Are you absolutely sure?</DrawerTitle> */}

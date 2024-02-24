@@ -24,6 +24,7 @@ export default function RootLayout({ children }) {
                 {/* pura view port is your container */}
                 <div className="wrapper">
                   <Navbar />
+                  
                   {children}
                 </div>
               </div>

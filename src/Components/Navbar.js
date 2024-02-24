@@ -74,7 +74,10 @@ export default function Navbar() {
 
             </>
           )}
+          <Link href={'/'}>
+          
           <li class="homepage">Homepage</li>
+          </Link>
           <li class="contact">Contact</li>
 
           {/* {status === "notauthenticated" ? (
