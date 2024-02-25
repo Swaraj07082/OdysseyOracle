@@ -23,6 +23,10 @@ export default async function CategoryList() {
   // console.log(data);
 
   const parsedata = Array.from(data);
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
   return (
     <>
       <div className=" personalcategories text-2xl mt-[35px]">
@@ -40,7 +44,9 @@ export default async function CategoryList() {
 
             <Link key={item._id} href={"/"} className="mt-[8px] ">
               {/* In mongodb we use _id */}
-              {item.title}
+              {capitalizeFirstLetter(item.title)}
+
+              {/* {item.title.capitalizeFirstLetter()} */}
             </Link>
           </div>
         ))}
