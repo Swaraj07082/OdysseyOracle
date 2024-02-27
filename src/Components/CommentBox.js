@@ -1,8 +1,12 @@
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
+import useSWR from "swr";
 
-export default function CommentBox() {
-  const status = "authenticated";
+export default function CommentBox({postSlug}) {
+  const status = useSession();
+
+  const {data , isLoading} = useSWR(`http://localhost:3000/api/comments/postSlug=${postSlug}`)
   return (
     <>
       <div className="flex justify-left gap-x-10">
