@@ -8,14 +8,14 @@ export const GET = async (req) => {
   // console.log(req.url)
 
   try {
-    const comments = await prisma.comment.findMany({
+    const comments = await prisma.Comment.findMany({
       where: {
         ...(postSlug && { postSlug }),
       },
       include: { user: true },
     });
 
-    return new NextResponse(JSON.stringify({ comments }, { status: 200 }));
+    return new NextResponse(JSON.stringify(comments , { status: 200 }));
   } catch (err) {
     console.log(err);
     return new NextResponse(

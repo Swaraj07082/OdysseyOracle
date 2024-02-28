@@ -8,7 +8,7 @@ import { Avatar } from "@mui/material";
 
 const fetcher = async (url) =>{
 
-  const res = await fetch('url');
+  const res = await fetch(url);
 
   const data = await res.json()
 
@@ -24,10 +24,12 @@ const fetcher = async (url) =>{
 export default function CommentBox({postSlug}) {
   // const status= useSession()
   // this won't work 
+
+  console.log(postSlug)
   const {status} = useSession();
 
-  const {data , isLoading} = useSWR(`http://localhost:3000/api/comments/postSlug=${postSlug}`, fetcher)
-  console.log(data);
+  const {data , isLoading} = useSWR(`http://localhost:3000/api/comments?postSlug=${postSlug}`, fetcher)
+  // console.log(data);
   return (
     <>
 
@@ -63,10 +65,14 @@ export default function CommentBox({postSlug}) {
    <p className="text-[15px]">Swaraj Mali</p>
    <p className="text-[15px]">8th February , 2023</p>
    <div>
-     <p>
+     {/* <p>
        Lorem ipsum dolor sit amet consectetur adipisicing elit.
        Obcaecati ipsa placeat ab cum adipisci architecto molestias
        sequi consectetur provident fugiat.
+     </p> */}
+
+<p>
+       {item.desc}
      </p>
    </div>
  </div>
