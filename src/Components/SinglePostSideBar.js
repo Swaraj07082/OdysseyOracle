@@ -7,7 +7,7 @@ import Stack from "@mui/material/Stack";
 import { Avatar } from "@mui/material";
 import CommentBox from "./CommentBox";
 
-export default function SinglePostSideBar() {
+export default function SinglePostSideBar({postSlug}) {
   return (
     <>
       <div className="flex ">
@@ -34,10 +34,10 @@ export default function SinglePostSideBar() {
 
           <div>
             <p className="text-4xl mb-[4%]">Comments</p>
-            <CommentBox />
+            <CommentBox postSlug={postSlug}/>
           </div>
 
-          <div className="flex  gap-x-3">
+          {/* <div className="flex  gap-x-3">
             <Avatar sx={{ width: 40, height: 40 }} />
 
             <div className="flex flex-col">
@@ -98,7 +98,7 @@ export default function SinglePostSideBar() {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="flex-[1.25] mt-[50px] lg:hidden ">
