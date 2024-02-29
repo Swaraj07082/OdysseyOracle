@@ -2,7 +2,7 @@
 
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import useSWR from "swr";
 import { Avatar } from "@mui/material";
 
@@ -28,8 +28,19 @@ export default function CommentBox({postSlug}) {
   console.log(postSlug)
   const {status} = useSession();
 
-  const {data , isLoading} = useSWR(`http://localhost:3000/api/comments?postSlug=${postSlug}`, fetcher)
+  const {data , mutate , isLoading} = useSWR(`http://localhost:3000/api/comments?postSlug=${postSlug}`, fetcher)
   // console.log(data);
+
+  const[desc , setDesc] = useState("")
+
+  const handleSubmit = async()=>{
+await fetch('/api/comments' ,{
+  method : 'POST',
+  body : JSON.stringify({desc , postSlug})
+  // for making a comment we need to pass the postSlug
+  });
+  mutate();
+  }
   return (
     <>
 
@@ -41,9 +52,10 @@ export default function CommentBox({postSlug}) {
             <textarea
               className="w-[80%] h-[120px]"
               placeholder="Write a Comment"
+              onChange={(e)=>setDesc(e.target.value)}
             ></textarea>
 
-            <button className="bg-[green] h-[50px] w-[80px]  self-center ">
+            <button className="bg-[green] h-[50px] w-[80px]  self-center " onClick={handleSubmit}>
               {" "}
               Send{" "}
             </button>
