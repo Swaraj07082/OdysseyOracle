@@ -44,14 +44,14 @@ export default async function page({ params }) {
   //   console.log(slug)
 
   const data = await getData(slug);
-    console.log(data.post.createdAt)
+    console.log(data)
   
 
   return (
     <>
       <SinglePostFeatured title={data.post.title} name={data.post.user.name} createdAt={data.post.createdAt}/>
      
-      <SinglePostSideBar postSlug={slug}/>
+      <SinglePostSideBar desc={data.post.desc.slice(3,-4)} postSlug={slug}/>
       <Footer />
     </>
   );

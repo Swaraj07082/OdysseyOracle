@@ -30,7 +30,7 @@ export default async function RecentPosts({ page, cat }) {
 
   let parseddata = Array.from(posts);
 
-  const POST_PER_PAGE = 2;
+  const POST_PER_PAGE = 4;
   const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
   const hasPrev = POST_PER_PAGE * (page - 1) > 0;
 
@@ -39,7 +39,7 @@ export default async function RecentPosts({ page, cat }) {
     <>
       <div className="flex ">
         <div className="flex-[3]">
-          <div className="mt-[50px] text-2xl">Recent Posts</div>
+          <div className="mt-[100px] text-2xl">Recent Posts</div>
 
           <div className="flex flex-col mt-[50px] gap-y-[55px]">
             {parseddata?.map((item) => (

@@ -8,14 +8,14 @@ export const GET = async (req) => {
   const page = searchParams.get("page");
   const cat = searchParams.get("cat");
 
-  const POST_PER_PAGE = 2;
+  const POST_PER_PAGE = 4;
 
   const query = {
     take: POST_PER_PAGE,
     skip: POST_PER_PAGE * (page - 1),
     // these are options in prisma findMany();
     where: {
-      ...(cat && { catSlug: cat }),
+      ...(cat && { catslug: cat }),
     },
   };
   

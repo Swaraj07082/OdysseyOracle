@@ -7,13 +7,14 @@ import Stack from "@mui/material/Stack";
 import { Avatar } from "@mui/material";
 import CommentBox from "./CommentBox";
 
-export default function SinglePostSideBar({postSlug}) {
+export default function SinglePostSideBar({postSlug , desc}) {
   return (
     <>
       <div className="flex ">
         <div className=" flex flex-[3] flex-col gap-y-[70px] mt-[5.2%]">
+          
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            {/* Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Perspiciatis praesentium cumque iste ipsa possimus provident rerum.
             Velit ipsa cum eligendi distinctio est quas. Reprehenderit quis,
             nostrum asperiores ad quae nisi nam quam! Aliquam sunt quasi totam
@@ -29,7 +30,9 @@ export default function SinglePostSideBar({postSlug}) {
             tempore? Laborum quisquam eum quae eveniet non repudiandae sequi
             deserunt. Quam repellat earum, voluptate fuga eligendi natus ipsa
             quo deleniti suscipit, velit dolor veniam sapiente illo
-            necessitatibus dolorum, rem omnis nostrum quibusdam odio e7x illum.{" "}
+          necessitatibus dolorum, rem omnis nostrum quibusdam odio e7x illum.{" "} */}
+            {desc}
+
           </p>
 
           <div>
