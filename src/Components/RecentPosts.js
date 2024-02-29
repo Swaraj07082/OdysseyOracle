@@ -25,16 +25,23 @@ const getData = async (page, cat) => {
 };
 
 export default async function RecentPosts({ page, cat }) {
-  const { posts, count } = await getData(page, cat);
+  const { posts, count , popular } = await getData(page, cat);
   // const count= await getData(cat);
 
   let parseddata = Array.from(posts);
+
+  
 
   const POST_PER_PAGE = 4;
   const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
   const hasPrev = POST_PER_PAGE * (page - 1) > 0;
 
   // console.log(data);
+
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
   return (
     <>
       <div className="flex ">
@@ -163,7 +170,18 @@ export default async function RecentPosts({ page, cat }) {
           <div className="flex flex-col gap-y-[25px] ml-12">
             <p className="text-2xl">Most Popular</p>
 
-            <div>
+{popular.map((item)=>
+ <div key={item.id}>
+ <Chip label={capitalizeFirstLetter(item.catslug)} size="small" color="warning" />
+ <div className="pt-[8px] text-[15px]">
+   {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. */}
+   {item.title}
+ </div>
+  <div className="text-[10px] pt-1"> {item.user} - {item.createdAt.slice(0,10)}</div>
+</div>
+
+)}
+            {/* <div>
               <Chip label="Travel" size="small" color="warning" />
               <div className="pt-[8px] text-[15px]">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -193,7 +211,7 @@ export default async function RecentPosts({ page, cat }) {
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               </div>
               <div className="text-[10px]  pt-1"> Swaraj - 02.02.2024</div>
-            </div>
+            </div> */}
           </div>
 
           <div className="mt-[60px] ml-[48px]">Discover By Topic!</div>
