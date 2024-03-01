@@ -8,6 +8,9 @@ import { Avatar } from "@mui/material";
 
 import PaginationDemo from "@/Components/Pagination";
 
+
+// const router = useRouter();
+
 const getData = async (page, cat) => {
   const res = await fetch(
     `http://localhost:3000/api/posts?page=${page}&cat=${cat || ""}`,
@@ -69,12 +72,13 @@ export default async function RecentPosts({ page, cat }) {
                     {/* Lorem ipsum dolor, sit amet consectetur adipisicing elit. */}
                   </p>
                   <p className="mb-[25px] text-[#626262]">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Aperiam ut rem ipsam quidem tempora magnam error eoseum
                     dignissimos eveniet nostrum. Beatae voluptate voluptas ipsa
-                    officiis eligendi enim.
+                    officiis eligendi enim. */}
+                    {item.desc}
                   </p>
-                  <Link href={"/"} className="underline">
+                  <Link href={`/posts/${item.title}`} className="underline" >
                     Read More
                   </Link>
                 </div>
@@ -242,7 +246,31 @@ export default async function RecentPosts({ page, cat }) {
           <div className="mt-[60px] ml-[48px]">Choosen by the Editor</div>
           <div className="mt-[0px] ml-[48px] text-2xl"> Editor's Pick</div>
 
-          <div className="flex gap-x-3 ml-[48px] ">
+{parseddata.map((item)=> <div className="flex gap-x-3 ml-[48px] ">
+            <div>
+              <Avatar sx={{ width: 60, height: 60 }} className="mt-[50px]" />
+            </div>
+
+            <div>
+              <Chip
+                size="small"
+                label={capitalizeFirstLetter( item.catslug)}
+                color="warning"
+                className="mt-8"
+              />
+
+              <p className="text-[15px] mt-1">
+                {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. */}
+                {item.desc}
+              </p>
+
+              <p className="text-[10px] mt-1">{item.user}-{item.createdAt.slice(0,10)}</p>
+            </div>
+          </div>
+
+
+)}
+          {/* <div className="flex gap-x-3 ml-[48px] ">
             <div>
               <Avatar sx={{ width: 60, height: 60 }} className="mt-[50px]" />
             </div>
@@ -322,7 +350,7 @@ export default async function RecentPosts({ page, cat }) {
 
               <p className="text-[10px] mt-1">Swaraj-02.02.2024</p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 

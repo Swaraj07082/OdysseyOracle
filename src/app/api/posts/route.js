@@ -27,8 +27,10 @@ export const GET = async (req) => {
         orderBy:{
           views : 'desc'
         },
+      
         take : 4
-      })
+      }),
+      
       // found the popular posts by ordering them in descending and choosing 4 from them as we will display 4 only
 
       // count the no of posts on basis of its catslug ,
