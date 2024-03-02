@@ -3,6 +3,8 @@ import Link from "next/link";
 // import ImageAvatars from "./Avatar";
 import { Avatar } from "@mui/material";
 
+
+
 const getData = async () => {
   const res = await fetch("http://localhost:3000/api/categories", {
     cache: "no-store",
@@ -36,13 +38,13 @@ export default async function CategoryList() {
         {parsedata?.map((item) => (
           // ?. optional chaining - will check will iterating data if it gets a undefined data it will print undefined rather than giving an error
           <div
-            className=" flex justify-center gap-x-[10px] flex-1 text-center bg-[#57c4ff31] h-[60px] pt-[10px] mr-8 mt-6 rounded-md"
+            className=" flex justify-center gap-x-[10px] flex-1 text-center bg-[#57c4ff31] h-[60px] pt-[10px] m-3 mt-6 rounded-md "
             key={item.title}
           >
             {item.img && <Avatar src={item.img} />}
             {/* used && cause in schema we have set img in Category model as not required , so if in case img is not set then avatar should not work , that's why item.img && */}
 
-            <Link key={item._id} href={"/"} className="mt-[8px] ">
+            <Link key={item._id} href={`/blog?page=1&cat=${item.title}`} className="mt-[8px] ">
               {/* In mongodb we use _id */}
               {capitalizeFirstLetter(item.title)}
 

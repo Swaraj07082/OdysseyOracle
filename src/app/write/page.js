@@ -127,7 +127,7 @@ if (res.status === 200) {
 
   return (
     <>
-      <div className=" absolute bottom-[500px] text-[20px] right-[200px] bg-[green] w-[100px] rounded-md text-center text-[#b3b3b1]">
+      <div className=" absolute bottom-[550px] text-[20px] right-[200px] bg-[green] w-[100px] rounded-md text-center text-[#b3b3b1]">
         <button onClick={handleSubmit}>Publish</button>
       </div>
 

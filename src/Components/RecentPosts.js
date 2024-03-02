@@ -5,6 +5,7 @@ import * as React from "react";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import { Avatar } from "@mui/material";
+import { redirect } from "next/navigation";
 
 import PaginationDemo from "@/Components/Pagination";
 
@@ -28,10 +29,13 @@ const getData = async (page, cat) => {
 };
 
 export default async function RecentPosts({ page, cat }) {
+  // console.log(page)
+  // console.log(cat)
   const { posts, count , popular } = await getData(page, cat);
   // const count= await getData(cat);
 
   let parseddata = Array.from(posts);
+  // console.log(parseddata)
 
   
 
@@ -42,14 +46,14 @@ export default async function RecentPosts({ page, cat }) {
   // console.log(data);
 
 
-  function capitalizeFirstLetter(string) {
+function capitalizeFirstLetter  (string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
   return (
     <>
       <div className="flex ">
         <div className="flex-[3]">
-          <div className="mt-[100px] text-2xl">Recent Posts</div>
+          <div className="mt-[70px] text-2xl">Recent Posts</div>
 
           <div className="flex flex-col mt-[50px] gap-y-[55px]">
             {parseddata?.map((item) => (
@@ -175,15 +179,24 @@ export default async function RecentPosts({ page, cat }) {
             <p className="text-2xl">Most Popular</p>
 
 {popular.map((item)=>
+<Link href={`/posts/${item.title}`}>
  <div key={item.id}>
  <Chip label={capitalizeFirstLetter(item.catslug)} size="small" color="warning" />
  <div className="pt-[8px] text-[15px]">
    {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. */}
+   
+   
    {item.title}
- </div>
-  <div className="text-[10px] pt-1"> {item.user} - {item.createdAt.slice(0,10)}</div>
+   
+ </div >
+
+  <div className="text-[10px] pt-1"> 
+  
+  {item.user} - {item.createdAt.slice(0,10)}</div>
+ 
 </div>
 
+</Link>
 )}
             {/* <div>
               <Chip label="Travel" size="small" color="warning" />
@@ -223,30 +236,57 @@ export default async function RecentPosts({ page, cat }) {
           <div className="mt-[0px] ml-[48px] text-2xl">Categories</div>
 
           <div className="grid ml-[48px] mt-7">
+        
             <div className="bg-[#57c4ff31] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center">
-              Style
+            <Link href={`/blog?page=1&cat=style`}>
+             Style
+            
+            </Link> 
             </div>
             <div className="bg-[#da85c731] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center">
+            <Link href={`/blog?page=1&cat=fashion`}>
+              
               Fashion
+              </Link> 
+
+
             </div>
             <div className="bg-[#7fb88133] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center">
+            <Link href={`/blog?page=1&cat=food`}>
+              
+
               Food
+              </Link> 
+              
             </div>
             <div className="bg-[#ff795736] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center">
+            <Link href={`/blog?page=1&cat=travel`}>
+              
               Travel
+              </Link> 
+
             </div>
             <div className="bg-[#ffb04f45] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center">
+            <Link href={`/blog?page=1&cat=culture`}>
+              
               Culture
+              </Link> 
+
             </div>
             <div className="bg-[#5e4fff31] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center">
+            <Link href={`/blog?page=1&cat=coding`}>
+              
               Coding
+              </Link> 
+
             </div>
           </div>
 
           <div className="mt-[60px] ml-[48px]">Choosen by the Editor</div>
           <div className="mt-[0px] ml-[48px] text-2xl"> Editor's Pick</div>
 
-{parseddata.map((item)=> <div className="flex gap-x-3 ml-[48px] ">
+{popular.map((item)=><Link href={`/posts/${item.title}`}>
+<div className="flex gap-x-3 ml-[48px] ">
             <div>
               <Avatar sx={{ width: 60, height: 60 }} className="mt-[50px]" />
             </div>
@@ -257,11 +297,11 @@ export default async function RecentPosts({ page, cat }) {
                 label={capitalizeFirstLetter( item.catslug)}
                 color="warning"
                 className="mt-8"
-              />
+                />
 
               <p className="text-[15px] mt-1">
                 {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. */}
-                {item.desc}
+                {item.title}
               </p>
 
               <p className="text-[10px] mt-1">{item.user}-{item.createdAt.slice(0,10)}</p>
@@ -269,6 +309,7 @@ export default async function RecentPosts({ page, cat }) {
           </div>
 
 
+</Link> 
 )}
           {/* <div className="flex gap-x-3 ml-[48px] ">
             <div>
@@ -354,7 +395,7 @@ export default async function RecentPosts({ page, cat }) {
         </div>
       </div>
 
-      <PaginationDemo page={page} hasNext={hasNext} hasPrev={hasPrev} />
+      <PaginationDemo page={page} cat={cat} hasNext={hasNext} hasPrev={hasPrev} />
     </>
   );
 }

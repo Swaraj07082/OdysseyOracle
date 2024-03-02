@@ -15,7 +15,7 @@ export default function blog({ searchParams }) {
     <>
       {/* <Featured /> */}
       {/* <CategoryList /> */}
-      <StyleBlog />
+      <StyleBlog cat={cat} />
       <RecentPosts page={page} cat={cat} />
       <div className="mt-12">
         <Pagination page={page} cat={cat} />
