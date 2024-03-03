@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 import {
@@ -12,9 +14,12 @@ import {
 } from "@/components/ui/drawer";
 
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 // import Link from "next/navigation";
 
 export default function ToggleMenu() {
+  const router = useRouter();
+
   return (
     <>
       <Drawer>
@@ -30,17 +35,44 @@ export default function ToggleMenu() {
         <DrawerContent>
           <DrawerHeader>
             <div class=" relative left-[100%] top-[50%] flex flex-col gap-y-8 text-center ">
-              <DrawerTitle class="text-3xl text-white">Login</DrawerTitle>
+              <div
+                onClick={() => {
+                  router.push("/login");
+                }}
+              >
+                <DrawerTitle class="text-3xl text-white">Login</DrawerTitle>
+              </div>
+              <div
+                onClick={() => {
+                  router.push("/");
+                }}
+              >
+                <DrawerTitle class="text-3xl text-white">Home Page</DrawerTitle>
+              </div>
+              <div
+                onClick={() => {
+                  router.push("/write");
+                }}
+              >
+                <DrawerTitle class="text-3xl text-white sms:hidden">
+                  Write
+                </DrawerTitle>
+              </div>
+              <div
+                onClick={() => {
+                  router.push("/contact");
+                }}
+              >
+                <DrawerTitle class="text-3xl text-white">Contact</DrawerTitle>
+              </div>
 
-              <DrawerTitle class="text-3xl text-white">Home Page</DrawerTitle>
-
-              <DrawerTitle class="text-3xl text-white sms:hidden">
-                Write
-              </DrawerTitle>
-
-              <DrawerTitle class="text-3xl text-white">Contact</DrawerTitle>
-
-              <DrawerTitle class="text-3xl text-white">About</DrawerTitle>
+              <div
+                onClick={() => {
+                  router.push("/about");
+                }}
+              >
+                <DrawerTitle class="text-3xl text-white">About</DrawerTitle>
+              </div>
             </div>
 
             {/* <DrawerTitle>Are you absolutely sure?</DrawerTitle> */}
