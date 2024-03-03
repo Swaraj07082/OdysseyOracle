@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/drawer";
 
 import { Button } from "@/components/ui/button";
+// import Link from "next/navigation";
 
 export default function ToggleMenu() {
   return (
@@ -28,10 +29,17 @@ export default function ToggleMenu() {
 
         <DrawerContent>
           <DrawerHeader>
-            <div class=" relative left-[100%] top-[50%] flex flex-col gap-y-8 sm:text-center ">
+            <div class=" relative left-[100%] top-[50%] flex flex-col gap-y-8 text-center ">
               <DrawerTitle class="text-3xl text-white">Login</DrawerTitle>
+
               <DrawerTitle class="text-3xl text-white">Home Page</DrawerTitle>
+
+              <DrawerTitle class="text-3xl text-white sms:hidden">
+                Write
+              </DrawerTitle>
+
               <DrawerTitle class="text-3xl text-white">Contact</DrawerTitle>
+
               <DrawerTitle class="text-3xl text-white">About</DrawerTitle>
             </div>
 

@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div class="flex items-center justify-between h-[80px] ">
+      <div class="flex items-center justify-between h-[80px] sm:justify-center ">
         <ul class=" logos flex flex-[1.6] gap-x-8">
           {/* flex-[1.6] is customised tailwind css and is equal to flex:1.6 means we have divided the parent flexed container in such a way that logos take 1.6 part , OdyssseyOracle takes 1 part by using flex-[1] and links also take 1 part  , when the parent container is flexed we can use flex:2 for child items and divide the amount of space each child item gets , therefore here logos take 1.6 part name take 1 part and links take 1 part*/}
 
@@ -37,11 +37,11 @@ export default function Navbar() {
             <AiFillInstagram />
           </li>
         </ul>
-        <div class="odyssey flex-[1] items-center box-border pl-[75px]">
+        <div class="odyssey flex-[1] items-center box-border pl-[75px] cs:pl-[0px] ">
           <h2>OdysseyOracle</h2>
         </div>
 
-        <ul class="links flex	flex-[1] gap-x-6">
+        <ul class="links flex	flex-[1] gap-x-6 sm:gap-x-3 cs:gap-x-2">
           <li>
             <CustomizedSwitches />{" "}
           </li>
@@ -61,7 +61,7 @@ export default function Navbar() {
           ) : (
             <>
               <Link href={"/write"}>
-                <li class="Write hover:cursor-pointer">Write</li>
+                <li class="Write hover:cursor-pointer sm:hidden">Write</li>
               </Link>
               <li class="login" onClick={signOut}>
                 Logout

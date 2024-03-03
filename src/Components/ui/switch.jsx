@@ -69,6 +69,8 @@ export default function CustomizedSwitches() {
         control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
         label=" "
         onClick={toggle}
+        className="h-[10px]"
+        
       />
 
       <Stack direction="row" spacing={1} alignItems="center"></Stack>

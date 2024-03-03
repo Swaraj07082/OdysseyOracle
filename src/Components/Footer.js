@@ -15,13 +15,13 @@ export default function Footer() {
             <p className="mt-[6px]">OdysseyOracle</p>
           </div>
 
-          <div className="mt-5">
+          <div className="mt-5 cs:text-[15px] cs:text-center">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus,
             eligendi! Impedit quaerat, quam magni necessitatibus temporibus vel
             ipsum ex. Numquam fuga non
           </div>
 
-          <ul className="flex gap-x-5 mt-5 text-[20px]">
+          <ul className="flex gap-x-5 mt-5 text-[20px] cs:justify-center ">
             <li>
               <FaFacebook />
             </li>
@@ -39,7 +39,7 @@ export default function Footer() {
         </div>
 
         <div className="flex-1">
-          <div className="footerlinks flex gap-x-[64px] justify-end lg:gap-x-[35px] md:gap-x-[75px] pt-7">
+          <div className="footerlinks flex gap-x-[64px] justify-end sm:gap-x-[25px] lg:gap-x-[35px] md:gap-x-[75px] pt-7">
             <ul>
               <li className="p-[5px]">Links</li>
               <li className="p-[5px]">HomePage</li>

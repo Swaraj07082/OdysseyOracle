@@ -27,6 +27,9 @@ export const theme = {
     // => @media (max-width: 767px) { ... }
     sm: { max: "639px" },
     // => @media (max-width: 639px) { ... }
+    cs: {max : "360px"},
+
+    sms: {min : "640px"}
   },
 
   extend: {

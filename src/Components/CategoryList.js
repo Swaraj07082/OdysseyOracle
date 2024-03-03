@@ -31,7 +31,7 @@ export default async function CategoryList() {
   }
   return (
     <>
-      <div className=" personalcategories text-2xl mt-[35px]">
+      <div className=" personalcategories text-2xl mt-[35px] cs:text-[25px]">
         Personal Categories
       </div>
       <div className="flex mt-4 flex-wrap">
@@ -44,7 +44,7 @@ export default async function CategoryList() {
             {item.img && <Avatar src={item.img} />}
             {/* used && cause in schema we have set img in Category model as not required , so if in case img is not set then avatar should not work , that's why item.img && */}
 
-            <Link key={item._id} href={`/blog?page=1&cat=${item.title}`} className="mt-[8px] ">
+            <Link key={item._id} href={`/blog?page=1&cat=${item.title}`} className="mt-[8px] lg:text-[15px] md:text-[13px]">
               {/* In mongodb we use _id */}
               {capitalizeFirstLetter(item.title)}
 

@@ -53,7 +53,7 @@ function capitalizeFirstLetter  (string) {
     <>
       <div className="flex ">
         <div className="flex-[3]">
-          <div className="mt-[70px] text-2xl">Recent Posts</div>
+          <div className="mt-[70px] text-2xl cs:mt-[35px] cs:text-[25px] cs:text-center ">Recent Posts</div>
 
           <div className="flex flex-col mt-[50px] gap-y-[55px]">
             {parseddata?.map((item) => (
@@ -65,17 +65,17 @@ function capitalizeFirstLetter  (string) {
                   className="object-cover xl:hidden"
                 />
 
-                <div className="ml-[45px] xl:ml-[0px]">
-                  <span>{item.createdAt.substring(0, 10)}</span>
-                  <span className="ml-[15px]">
+                <div className="ml-[45px] xl:ml-[0px] ">
+                  <span className="cs:text-[15px]">{item.createdAt.substring(0, 10)}</span>
+                  <span className="ml-[15px] cs:text-[15px]">
                     {item.catslug.toUpperCase()}
                   </span>
 
-                  <p className="text-2xl mt-[25px] mb-[25px]">
+                  <p className="text-2xl mt-[25px] mb-[25px] cs:text-[15px] cs:mt-[18px] cs:mb-[18px]">
                     {item.title}
                     {/* Lorem ipsum dolor, sit amet consectetur adipisicing elit. */}
                   </p>
-                  <p className="mb-[25px] text-[#626262]">
+                  <p className="mb-[25px] text-[#626262] cs:text-[12px] cs:mb-[18px]">
                     {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Aperiam ut rem ipsam quidem tempora magnam error eoseum
                     dignissimos eveniet nostrum. Beatae voluptate voluptas ipsa
