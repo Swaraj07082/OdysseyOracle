@@ -132,6 +132,8 @@ if (res.status === 200) {
       </div>
 
       <div className="h-[570px] flex items-left flex-col justify-around ">
+      
+
         <div className="">
           <input
             type="text"

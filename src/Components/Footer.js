@@ -10,15 +10,15 @@ export default function Footer() {
     <>
       <div className="flex mt-9 md:flex-col items-center">
         <div className="flex-1 flex-col">
-          <div className="flex gap-x-4 ">
+          <div className="flex gap-x-4 md:hidden">
             <Avatar />
-            <p className="mt-[6px]">OdysseyOracle</p>
+            <p className="mt-[6px] md:hidden">OdysseyOracle</p>
           </div>
 
-          <div className="mt-5 cs:text-[15px] cs:text-center">
+          <div className="mt-5 cs:text-[15px] cs:text-center md:hidden pr-[100px]" >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus,
             eligendi! Impedit quaerat, quam magni necessitatibus temporibus vel
-            ipsum ex. Numquam fuga non
+            ipsum ex.
           </div>
 
           <ul className="flex gap-x-5 mt-5 text-[20px] cs:justify-center ">
