@@ -84,8 +84,14 @@ padding-left: 0px;
 .light{
 
 background-color: #0f172a;
+/* background-color: black; */
 color: #ddd;
 }
+
+/* 
+.light button {
+  background-color: red;
+} */
 
 @media screen and (max-width:1280px) {
   .logos{
@@ -99,6 +105,7 @@ color: #ddd;
 .odyssey{
   font-size: 22px;
 }
+
 
   .links{
     font-size: 12px;
@@ -278,3 +285,10 @@ font-size: 28px;
   border: none;
 }
 
+.previous:disabled{
+  display: none;
+}
+
+.next:disabled{
+  display: none;
+}

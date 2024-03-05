@@ -26,7 +26,7 @@ export default function page() {
           you're a seasoned expert or a curious enthusiast, there's something
           for everyone here.
           <br />
-          Our team is comprised of dedicated writers, thinkers, and creators who
+          Our team is comprised of dedicated writers, thinkers, and creators
           are committed to delivering high-quality, thought-provoking content
           that resonates with our audience. From insightful articles and
           in-depth analyses to captivating stories and helpful tutorials, we aim

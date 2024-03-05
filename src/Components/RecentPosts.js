@@ -192,7 +192,7 @@ function capitalizeFirstLetter  (string) {
 
   <div className="text-[10px] pt-1"> 
   
-  {item.user} - {item.createdAt.slice(0,10)}</div>
+   {item.createdAt.slice(0,10)}</div>
  
 </div>
 
@@ -304,7 +304,7 @@ function capitalizeFirstLetter  (string) {
                 {item.title}
               </p>
 
-              <p className="text-[10px] mt-1">{item.user}-{item.createdAt.slice(0,10)}</p>
+              <p className="text-[10px] mt-1">{item.createdAt.slice(0,10)}</p>
             </div>
           </div>
 
