@@ -4,6 +4,7 @@ import { FaFacebook } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -15,7 +16,7 @@ export default function Footer() {
             <p className="mt-[6px] md:hidden">OdysseyOracle</p>
           </div>
 
-          <div className="mt-5 cs:text-[15px] cs:text-center md:hidden pr-[100px]" >
+          <div className="mt-5 cs:text-[15px] cs:text-center md:hidden pr-[100px]">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus,
             eligendi! Impedit quaerat, quam magni necessitatibus temporibus vel
             ipsum ex.
@@ -29,7 +30,9 @@ export default function Footer() {
               <FaYoutube />
             </li>
             <li>
-              <FaTwitter />
+              <Link href="https://twitter.com/SwarajM07" target="_blank">
+                <FaTwitter />
+              </Link>
             </li>
 
             <li>
@@ -42,10 +45,18 @@ export default function Footer() {
           <div className="footerlinks flex gap-x-[64px] justify-end sm:gap-x-[25px] lg:gap-x-[35px] md:gap-x-[75px] pt-7">
             <ul>
               <li className="p-[5px]">Links</li>
-              <li className="p-[5px]">HomePage</li>
+              <Link href={"/"}>
+                <li className="p-[5px]">HomePage</li>
+              </Link>
+
               <li className="p-[5px]">Blog</li>
-              <li className="p-[5px]">About</li>
-              <li className="p-[5px]">Contact</li>
+              <Link href={"/about"}>
+                <li className="p-[5px]">About</li>
+              </Link>
+
+              <Link href={"/contact"}>
+                <li className="p-[5px]">Contact</li>
+              </Link>
             </ul>
 
             <ul>
@@ -60,7 +71,9 @@ export default function Footer() {
               <li className="p-[5px]">Social</li>
               <li className="p-[5px]">Facebook</li>
               <li className="p-[5px]">Instagram</li>
-              <li className="p-[5px]">Twitter</li>
+              <Link href={"https://twitter.com/SwarajM07"}>
+                <li className="p-[5px]">Twitter</li>
+              </Link>
               <li className="p-[5px]">YouTube</li>
             </ul>
           </div>

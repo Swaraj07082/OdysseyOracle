@@ -14,7 +14,6 @@ import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
 
 export default function Navbar() {
-
   const { status } = useSession();
 
   return (
@@ -30,7 +29,9 @@ export default function Navbar() {
             <FaYoutube />
           </li>
           <li>
-            <FaTwitter />
+            <Link href="https://twitter.com/SwarajM07" target="_blank">
+              <FaTwitter />
+            </Link>
           </li>
 
           <li>
@@ -38,7 +39,9 @@ export default function Navbar() {
           </li>
         </ul>
         <div class="odyssey flex-[1] items-center box-border pl-[75px] cs:pl-[0px] ">
-          <h2>OdysseyOracle</h2>
+          <Link href={"/"}>
+            <h2>OdysseyOracle</h2>
+          </Link>
         </div>
 
         <ul class="links flex	flex-[1] gap-x-6 sm:gap-x-3 cs:gap-x-2">
@@ -71,9 +74,9 @@ export default function Navbar() {
           <Link href={"/"}>
             <li class="homepage">Homepage</li>
           </Link>
-          <li class="contact">Contact</li>
-
-          
+          <Link href={"/contact"}>
+            <li class="contact">Contact</li>
+          </Link>
 
           {/* {status === "notauthenticated" ? (
              <>
@@ -85,7 +88,9 @@ export default function Navbar() {
             </>
           )} */}
 
-          <li class="about">About</li>
+          <Link href={"/about"}>
+            <li class="about">About</li>
+          </Link>
 
           <li class="togglemenu">
             <ToggleMenu />
