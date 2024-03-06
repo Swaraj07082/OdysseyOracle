@@ -128,9 +128,9 @@ if (res.status === 200) {
 
   return (
     <>
-      <div className=" absolute bottom-[550px] text-[20px] right-[200px] bg-[green] w-[100px] rounded-md text-center text-[#b3b3b1]">
+      {/* <div className=" absolute bottom-[550px] text-[20px] right-[200px] bg-[green] w-[100px] rounded-md text-center text-[#b3b3b1]">
         <button onClick={handleSubmit}>Publish</button>
-      </div>
+      </div> */}
 
       <div className="h-[570px] flex items-left flex-col justify-around ">
       
@@ -139,7 +139,7 @@ if (res.status === 200) {
           <input
             type="text"
             placeholder="Title"
-            className="h-[50px] text-5xl italic bg-transparent outline-none "
+            className="h-[50px] md:w-[100px] text-5xl italic bg-transparent outline-none "
             onChange={e=>setTitle(e.target.value)}
           />
         </div>
@@ -204,6 +204,9 @@ if (res.status === 200) {
             onChange={setvalue}
           />
         </div>
+        <div className="  text-[20px] sm:self-center self-end bg-[green] w-[100px] rounded-md text-center text-[#b3b3b1]">
+        <button onClick={handleSubmit}>Publish</button>
+      </div>
       </div>
     </>
   );
