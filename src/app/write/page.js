@@ -1,7 +1,7 @@
 "use client";
 
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-
+import Loader from "@/Components/Loader";
 import Footer from "@/Components/Footer";
 import React, { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
@@ -84,7 +84,8 @@ uploadTask.on('state_changed',
   // console.log(data,status);
 
   if (status === "loading") {
-    return <div>Loading...</div>;
+    // return <div>Loading...</div>;
+    return <Loader/>
   }
 
   if (status === "unauthenticated") {

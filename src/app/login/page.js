@@ -1,5 +1,5 @@
 'use client'
-
+import Loader from "@/Components/Loader";
 import Footer from "@/Components/Footer";
 import {signIn ,signOut , useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -18,7 +18,8 @@ const router = useRouter();
 
 
 if(status === 'loading'){
-  return <div>Loading...</div>
+ return <Loader/>
+  // return <div>Loading...</div>
 }
 
 if(status == 'authenticated'){

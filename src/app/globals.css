@@ -283,6 +283,7 @@ font-size: 28px;
 
 .quill > .ql-toolbar.ql-snow{
   border: none;
+  display: none;
 }
 
 .previous:disabled{
