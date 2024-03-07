@@ -1,6 +1,19 @@
 "use client";
 
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+
+
+
+
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
 import Loader from "@/Components/Loader";
 import Footer from "@/Components/Footer";
 import React, { useEffect, useState } from "react";
@@ -26,66 +39,66 @@ export default function page() {
   const [file, setfile] = useState(null);
   const [value, setvalue] = useState("");
   const [media, setMedia] = useState("");
-  const [title ,setTitle] = useState("")
- 
+  const [title, setTitle] = useState("");
+  const [category , setcategory] = useState("")
 
-  useEffect( ()=>{
-    const upload =()=>{
+  useEffect(() => {
+    const upload = () => {
       const name = new Date().getTime + file.name;
       const storageRef = ref(storage, name);
 
       // const storageRef = ref(storage, file.name);
       // cant use file.name cause suppose if we upload a same file twice it will have the same name so won't be able to differ between them that's why added a timestamp above by using Date().getTime
 
+      const uploadTask = uploadBytesResumable(storageRef, file);
 
-const uploadTask = uploadBytesResumable(storageRef, file);
-
-// Register three observers:
-// 1. 'state_changed' observer, called any time the state changes
-// 2. Error observer, called on failure
-// 3. Completion observer, called on successful completion
-uploadTask.on('state_changed', 
-  (snapshot) => {
-    // Observe state change events such as progress, pause, and resume
-    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    console.log('Upload is ' + progress + '% done');
-    switch (snapshot.state) {
-      case 'paused':
-        console.log('Upload is paused');
-        break;
-      case 'running':
-        console.log('Upload is running');
-        break;
-    }
-  }, 
-  (error) => {
-    // Handle unsuccessful uploads
-  }, 
-  () => {
-    // Handle successful uploads on complete
-    // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-      // console.log('File available at', downloadURL);
-      setMedia(downloadURL)
-    });
-  }
-);
-    }
+      // Register three observers:
+      // 1. 'state_changed' observer, called any time the state changes
+      // 2. Error observer, called on failure
+      // 3. Completion observer, called on successful completion
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          // Observe state change events such as progress, pause, and resume
+          // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+          const progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log("Upload is " + progress + "% done");
+          switch (snapshot.state) {
+            case "paused":
+              console.log("Upload is paused");
+              break;
+            case "running":
+              console.log("Upload is running");
+              break;
+          }
+        },
+        (error) => {
+          // Handle unsuccessful uploads
+        },
+        () => {
+          // Handle successful uploads on complete
+          // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            // console.log('File available at', downloadURL);
+            setMedia(downloadURL);
+          });
+        }
+      );
+    };
 
     file && upload();
-    }, [file])
+  }, [file]);
 
   const router = useRouter();
 
   const { status } = useSession();
-  
 
   // console.log(data,status);
 
   if (status === "loading") {
     // return <div>Loading...</div>;
-    return <Loader/>
+    return <Loader />;
   }
 
   if (status === "unauthenticated") {
@@ -99,32 +112,35 @@ uploadTask.on('state_changed',
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
-const handleSubmit =async()=>{
-const res = await fetch('/api/posts' , 
-{
-  method : 'POST',
-  body : JSON.stringify({
+  const handleSubmit = async () => {
+    const res = await fetch("/api/posts", {
+      method: "POST",
+      body: JSON.stringify({
+        title,
+        desc: value,
+        img: media,
+        slug: slugify(title),
+        // catslug: "fashion",
+        catslug : category
+      }),
+    });
 
-    title,
-    desc :value,
-    img: media,
-    slug : slugify(title),
-    catslug : "fashion"
-    
-  })
-})
+    console.log(res);
 
-console.log(res)
-
-if (res.status === 200) {
-  const data = await res.json();
-  // console.log(data)
-  router.push(`/posts/${data.slug}`);
-}
-
-}   
+    if (res.status === 200) {
+      const data = await res.json();
+      // console.log(data)
+      router.push(`/posts/${data.slug}`);
+    }
+  };
 
 
+  const handleChange = (event) => {
+    setcategory(event.target.value);
+  };
+
+
+  console.log(category)
 
   return (
     <>
@@ -133,14 +149,12 @@ if (res.status === 200) {
       </div> */}
 
       <div className="h-[570px] flex items-left flex-col justify-around ">
-      
-
         <div className="">
           <input
             type="text"
             placeholder="Title"
             className="h-[50px] md:w-[100px] text-5xl italic bg-transparent outline-none "
-            onChange={e=>setTitle(e.target.value)}
+            onChange={(e) => setTitle(e.target.value)}
           />
         </div>
 
@@ -204,9 +218,25 @@ if (res.status === 200) {
             onChange={setvalue}
           />
         </div>
+        <div>
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Category</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={category}
+              label="Age"
+              onChange={handleChange}
+            >
+              <MenuItem value='fashion'>Fashion</MenuItem>
+              <MenuItem value='travel'>Travel</MenuItem>
+              <MenuItem value='food'>Food</MenuItem>
+            </Select>
+          </FormControl>
+        </div>
         <div className="  text-[20px] sm:self-center self-end bg-[green] w-[100px] rounded-md text-center text-[#b3b3b1]">
-        <button onClick={handleSubmit}>Publish</button>
-      </div>
+          <button onClick={handleSubmit}>Publish</button>
+        </div>
       </div>
     </>
   );
