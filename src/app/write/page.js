@@ -1,13 +1,9 @@
 "use client";
 
-
-
-
-
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 import {
   getStorage,
   ref,
@@ -29,20 +25,22 @@ import Video from "../../../public/Video.png";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { app } from "@/utils/firbase";
-import { resolve } from "url";
+import { app } from "@/utils/firebase";
 
-const storage = getStorage(app);
+
+// const storage = getStorage(app);
 
 export default function page() {
   const [open, setopen] = useState(false);
   const [file, setfile] = useState(null);
-  const [value, setvalue] = useState("");
   const [media, setMedia] = useState("");
+  const [value, setvalue] = useState("");
   const [title, setTitle] = useState("");
-  const [category , setcategory] = useState("")
+  const [category, setcategory] = useState("");
 
   useEffect(() => {
+    const storage = getStorage(app);
+
     const upload = () => {
       const name = new Date().getTime + file.name;
       const storageRef = ref(storage, name);
@@ -81,6 +79,7 @@ export default function page() {
           // For instance, get the download URL: https://firebasestorage.googleapis.com/...
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             // console.log('File available at', downloadURL);
+            console.log(downloadURL)
             setMedia(downloadURL);
           });
         }
@@ -112,6 +111,10 @@ export default function page() {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
+      useEffect(()=>{
+        console.log(media);
+      }, [media])
+
   const handleSubmit = async () => {
     const res = await fetch("/api/posts", {
       method: "POST",
@@ -121,7 +124,7 @@ export default function page() {
         img: media,
         slug: slugify(title),
         // catslug: "fashion",
-        catslug : category
+        catslug: category,
       }),
     });
 
@@ -134,13 +137,11 @@ export default function page() {
     }
   };
 
-
   const handleChange = (event) => {
     setcategory(event.target.value);
   };
 
-
-  console.log(category)
+  // console.log(category);
 
   return (
     <>
@@ -185,7 +186,7 @@ export default function page() {
                   type="file"
                   id="Photo"
                   className="hidden"
-                  onChange={(e) => e.target.files[0]}
+                  onChange={(e) => setfile(e.target.files[0])}
                 />
               </button>
               <button>
@@ -228,9 +229,9 @@ export default function page() {
               label="Age"
               onChange={handleChange}
             >
-              <MenuItem value='fashion'>Fashion</MenuItem>
-              <MenuItem value='travel'>Travel</MenuItem>
-              <MenuItem value='food'>Food</MenuItem>
+              <MenuItem value="fashion">Fashion</MenuItem>
+              <MenuItem value="travel">Travel</MenuItem>
+              <MenuItem value="food">Food</MenuItem>
             </Select>
           </FormControl>
         </div>
@@ -241,3 +242,6 @@ export default function page() {
     </>
   );
 }
+
+
+

@@ -49,7 +49,7 @@ export default async function page({ params }) {
 
   return (
     <>
-      <SinglePostFeatured title={data.post.title} name={data.post.user.name} createdAt={data.post.createdAt}/>
+      <SinglePostFeatured title={data.post.title} img={data.post.name || ""} name={data.post.user.name} createdAt={data.post.createdAt}/>
      
       <SinglePostSideBar desc={data.post.desc.slice(3,-4)} postSlug={slug}/>
       <Footer />

@@ -5,7 +5,7 @@ function capitalizeFirstLetter  (string) {
 export default function StyleBlog({ cat }) {
   const capcat = capitalizeFirstLetter(cat)
   return (
-    <div className="bg-[coral] font-semibold h-10 text-center pr-[68px] text-[25px]">
+    <div className="bg-[coral] font-semibold h-10 text-center text-[25px]">
      
       {capcat}  Blog
     </div>

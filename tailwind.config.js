@@ -27,11 +27,14 @@ export const theme = {
     // => @media (max-width: 767px) { ... }
     sm: { max: "639px" },
     // => @media (max-width: 639px) { ... }
-    cs: {max : "375px"},
+    cs: { max: "375px" },
 
-    sms: {min : "640px"}
+    sms: { min: "640px" },
   },
-
+  fontFamily: {
+    "grotesque":["Courier New"],
+    "halyard":["__Inter_aaf875"]
+  },
   extend: {
     keyframes: {
       "accordion-down": {

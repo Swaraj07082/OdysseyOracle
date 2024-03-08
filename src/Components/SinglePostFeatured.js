@@ -3,7 +3,7 @@ import Image from "next/image";
 import blog from "../../public/blog.jpg";
 import { Avatar } from "@mui/material";
 
-export default function SinglePostFeatured({ title, name , createdAt }) {
+export default function SinglePostFeatured({ title, name , createdAt , img }) {
 
   
   return (
@@ -27,7 +27,8 @@ export default function SinglePostFeatured({ title, name , createdAt }) {
           </div>
           <div className="image">
             <Image
-              src={blog}
+              src={img}
+              alt="Image Not Found"
               height={500}
               width={500}
               className="object-cover "
