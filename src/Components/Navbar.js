@@ -110,7 +110,7 @@ import CustomizedSwitches from "./ui/switch";
 export default function Navbar() {
   return (
     <>
-      < div className="flex justify-between h-36">
+      <div className="flex justify-evenly gap-x-[300px] h-36">
         <div className=" flex gap-x-6 justify-center items-center dec list-none text-[17.6px]">
           {/* <ul className="flex gap-x-4"> */}
 
@@ -128,22 +128,22 @@ export default function Navbar() {
           {/* </ul> */}
         </div>
 
-        
-          <div className="flex flex-col text-center justify-center gap-y-5 items-center">
-            <div className="text-[48px] font-grotesque font-bold">OracleOdyssey</div>
-
-            <div>
-              <ul className="flex gap-x-6 font-[17.6px] font-halyard ">
-                <li>HOME</li>
-                <li>LOGIN</li>
-                <li>CONTACT</li>
-                <li>ABOUT</li>
-
-                <li>WRITE</li>
-              </ul>
-            </div>
+        <div className="flex flex-col text-center justify-center gap-y-5 items-center">
+          <div className="text-[48px] font-grotesque font-bold">
+            OracleOdyssey
           </div>
-        
+
+          <div>
+            <ul className="flex gap-x-6 font-[17.6px] font-halyard ">
+              <li>HOME</li>
+              <li>LOGIN</li>
+              <li>CONTACT</li>
+              <li>ABOUT</li>
+
+              <li>WRITE</li>
+            </ul>
+          </div>
+        </div>
 
         <div className="flex items-center justify-center">
           <CustomizedSwitches />

@@ -9,7 +9,6 @@ import { redirect } from "next/navigation";
 
 import PaginationDemo from "@/Components/Pagination";
 
-
 // const router = useRouter();
 
 const getData = async (page, cat) => {
@@ -31,13 +30,11 @@ const getData = async (page, cat) => {
 export default async function RecentPosts({ page, cat }) {
   // console.log(page)
   // console.log(cat)
-  const { posts, count , popular } = await getData(page, cat);
+  const { posts, count, popular } = await getData(page, cat);
   // const count= await getData(cat);
 
   let parseddata = Array.from(posts);
   // console.log(parseddata)
-
-  
 
   const POST_PER_PAGE = 4;
   const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
@@ -45,15 +42,16 @@ export default async function RecentPosts({ page, cat }) {
 
   // console.log(data);
 
-
-function capitalizeFirstLetter  (string) {
+  function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
   return (
     <>
       <div className="flex ">
         <div className="flex-[3]">
-          <div className="mt-[70px] text-2xl cs:mt-[35px] cs:text-[25px] cs:text-center ">Recent Posts</div>
+          <div className="mt-[70px] text-2xl cs:mt-[35px] cs:text-[25px] cs:text-center ">
+            Recent Posts
+          </div>
 
           <div className="flex flex-col mt-[50px] gap-y-[55px]">
             {parseddata?.map((item) => (
@@ -66,7 +64,9 @@ function capitalizeFirstLetter  (string) {
                 />
 
                 <div className="ml-[45px] xl:ml-[0px] ">
-                  <span className="cs:text-[15px]">{item.createdAt.substring(0, 10)}</span>
+                  <span className="cs:text-[15px]">
+                    {item.createdAt.substring(0, 10)}
+                  </span>
                   <span className="ml-[15px] cs:text-[15px]">
                     {item.catslug.toUpperCase()}
                   </span>
@@ -82,7 +82,7 @@ function capitalizeFirstLetter  (string) {
                     officiis eligendi enim. */}
                     {item.desc}
                   </p>
-                  <Link href={`/posts/${item.title}`} className="underline" >
+                  <Link href={`/posts/${item.title}`} className="underline">
                     Read More
                   </Link>
                 </div>
@@ -178,26 +178,26 @@ function capitalizeFirstLetter  (string) {
           <div className="flex flex-col gap-y-[25px] ml-12">
             <p className="text-2xl">Most Popular</p>
 
-{popular.map((item)=>
-<Link href={`/posts/${item.title}`}>
- <div key={item.id}>
- <Chip label={capitalizeFirstLetter(item.catslug)} size="small" color="warning" />
- <div className="pt-[8px] text-[15px]">
-   {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. */}
-   
-   
-   {item.title}
-   
- </div >
+            {popular.map((item) => (
+              <Link href={`/posts/${item.title}`}>
+                <div key={item.id}>
+                  <Chip
+                    label={capitalizeFirstLetter(item.catslug)}
+                    size="small"
+                    color="warning"
+                  />
+                  <div className="pt-[8px] text-[15px]">
+                    {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. */}
 
-  <div className="text-[10px] pt-1"> 
-  
-   {item.createdAt.slice(0,10)}</div>
- 
-</div>
+                    {item.title}
+                  </div>
 
-</Link>
-)}
+                  <div className="text-[10px] pt-1">
+                    {item.createdAt.slice(0, 10)}
+                  </div>
+                </div>
+              </Link>
+            ))}
             {/* <div>
               <Chip label="Travel" size="small" color="warning" />
               <div className="pt-[8px] text-[15px]">
@@ -236,81 +236,59 @@ function capitalizeFirstLetter  (string) {
           <div className="mt-[0px] ml-[48px] text-2xl">Categories</div>
 
           <div className="grid ml-[48px] mt-7">
-        
             <div className="bg-[#57c4ff31] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center">
-            <Link href={`/blog?page=1&cat=style`}>
-             Style
-            
-            </Link> 
+              <Link href={`/blog?page=1&cat=style`}>Style</Link>
             </div>
             <div className="bg-[#da85c731] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center">
-            <Link href={`/blog?page=1&cat=fashion`}>
-              
-              Fashion
-              </Link> 
-
-
+              <Link href={`/blog?page=1&cat=fashion`}>Fashion</Link>
             </div>
             <div className="bg-[#7fb88133] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center">
-            <Link href={`/blog?page=1&cat=food`}>
-              
-
-              Food
-              </Link> 
-              
+              <Link href={`/blog?page=1&cat=food`}>Food</Link>
             </div>
             <div className="bg-[#ff795736] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center">
-            <Link href={`/blog?page=1&cat=travel`}>
-              
-              Travel
-              </Link> 
-
+              <Link href={`/blog?page=1&cat=travel`}>Travel</Link>
             </div>
             <div className="bg-[#ffb04f45] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center">
-            <Link href={`/blog?page=1&cat=culture`}>
-              
-              Culture
-              </Link> 
-
+              <Link href={`/blog?page=1&cat=culture`}>Culture</Link>
             </div>
             <div className="bg-[#5e4fff31] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center">
-            <Link href={`/blog?page=1&cat=coding`}>
-              
-              Coding
-              </Link> 
-
+              <Link href={`/blog?page=1&cat=coding`}>Coding</Link>
             </div>
           </div>
 
           <div className="mt-[60px] ml-[48px]">Choosen by the Editor</div>
           <div className="mt-[0px] ml-[48px] text-2xl"> Editor's Pick</div>
 
-{popular.map((item)=><Link href={`/posts/${item.title}`}>
-<div className="flex gap-x-3 ml-[48px] ">
-            <div>
-              <Avatar sx={{ width: 60, height: 60 }} className="mt-[50px]" />
-            </div>
+          {popular.map((item) => (
+            <Link href={`/posts/${item.title}`}>
+              <div className="flex gap-x-3 ml-[48px] ">
+                <div>
+                  <Avatar
+                    sx={{ width: 60, height: 60 }}
+                    className="mt-[50px]"
+                  />
+                </div>
 
-            <div>
-              <Chip
-                size="small"
-                label={capitalizeFirstLetter( item.catslug)}
-                color="warning"
-                className="mt-8"
-                />
+                <div>
+                  <Chip
+                    size="small"
+                    label={capitalizeFirstLetter(item.catslug)}
+                    color="warning"
+                    className="mt-8"
+                  />
 
-              <p className="text-[15px] mt-1">
-                {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. */}
-                {item.title}
-              </p>
+                  <p className="text-[15px] mt-1">
+                    {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. */}
+                    {item.title}
+                  </p>
 
-              <p className="text-[10px] mt-1">{item.createdAt.slice(0,10)}</p>
-            </div>
-          </div>
-
-
-</Link> 
-)}
+                  <p className="text-[10px] mt-1">
+                    {item.createdAt.slice(0, 10)}
+                  </p>
+                </div>
+              </div>
+            </Link>
+          ))}
           {/* <div className="flex gap-x-3 ml-[48px] ">
             <div>
               <Avatar sx={{ width: 60, height: 60 }} className="mt-[50px]" />
@@ -395,7 +373,12 @@ function capitalizeFirstLetter  (string) {
         </div>
       </div>
 
-      <PaginationDemo page={page} cat={cat} hasNext={hasNext} hasPrev={hasPrev} />
+      <PaginationDemo
+        page={page}
+        cat={cat}
+        hasNext={hasNext}
+        hasPrev={hasPrev}
+      />
     </>
   );
 }

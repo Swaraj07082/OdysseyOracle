@@ -20,9 +20,13 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <ThemeContextProvider>
             <ThemeProvider>
-              <div className="container">
+              <div className="">
+              {/* <div className="container"> */}
+
                 {/* pura view port is your container */}
-                <div className="wrapper">
+                <div className="">
+                {/* <div className="wrapper"> */}
+
                   <Navbar />
                   
                   {children}
