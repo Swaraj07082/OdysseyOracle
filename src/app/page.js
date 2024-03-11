@@ -20,6 +20,7 @@ export default function Home({ searchParams }) {
   return (
     <>
       <Featured />
+
       <CategoryList />
       <RecentPosts page={page} />
       {/* <div className="mt-12">

@@ -1,5 +1,7 @@
 import Image from "next/image";
 import React from "react";
+import ExploreFashion from "@/Components/ExploreFashion";
+
 import blog from "../../public/blog.jpg";
 import Link from "next/link";
 
@@ -12,7 +14,7 @@ export default function Featured() {
           <Image height={600} width={680} objectFit="contain" src={blog} />
         </div>
 
-        <div className=" border-solid border-black border-4 z-10 h-[400px] w-[650px] relative top-6 bg-white right-16 flex flex-col text-center justify-center gap-y-[30px] p-10">
+        <div className=" border-solid border-black border-4 z-10 h-[360px] w-[650px] relative top-5 bg-white right-16 flex flex-col text-center justify-center gap-y-[30px] p-10">
           <p>FASHION</p>
           <p className=" font-grotesque text-[38px] font-bold">
             Lorem ipsum dolor sit amet consectetur.
@@ -24,6 +26,9 @@ export default function Featured() {
       </div>
 
       <div>
+
+      <ExploreFashion/>
+
         <div class=" title text-7xl text-center p-8 cs:text-[25px]">
           Personal narratives shared with warmth and authenticity.
         </div>
