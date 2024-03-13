@@ -44,14 +44,18 @@ export default async function page({ params }) {
   //   console.log(slug)
 
   const data = await getData(slug);
-    console.log(data)
-  
+  console.log(data);
 
   return (
     <>
-      <SinglePostFeatured title={data.post.title} img={data.post.name || ""} name={data.post.user.name} createdAt={data.post.createdAt}/>
-     
-      <SinglePostSideBar desc={data.post.desc.slice(3,-4)} postSlug={slug}/>
+      <SinglePostFeatured
+        title={data.post.title}
+        img={data.post.name || ""}
+        name={data.post.user.name}
+        createdAt={data.post.createdAt}
+      />
+
+      <SinglePostSideBar desc={data.post.desc.slice(3, -4)} postSlug={slug} />
       <Footer />
     </>
   );

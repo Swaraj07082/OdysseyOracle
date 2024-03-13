@@ -6,9 +6,10 @@ import { wrap } from "module";
 export default function ExploreFashion() {
   return (
     <>
-     
       <div className=" flex flex-col justify-center items-center h-[860px] gap-y-9">
-        <div className="text-[42px] self-start ml-[150px] mt-[180px]">Fashion</div>
+        <div className="text-[42px] self-start ml-[150px] mt-[180px]">
+          Fashion
+        </div>
         <div className="flex items-center justify-center gap-x-7">
           <div>
             <Image src={blog} className="h-[400px] w-[250px]" />

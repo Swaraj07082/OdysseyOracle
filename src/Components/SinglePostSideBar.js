@@ -7,12 +7,11 @@ import Stack from "@mui/material/Stack";
 import { Avatar } from "@mui/material";
 import CommentBox from "./CommentBox";
 
-export default function SinglePostSideBar({postSlug , desc}) {
+export default function SinglePostSideBar({ postSlug, desc }) {
   return (
     <>
       <div className="flex ">
         <div className=" flex flex-[3] flex-col gap-y-[70px] mt-[5.2%]">
-          
           <p>
             {/* Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Perspiciatis praesentium cumque iste ipsa possimus provident rerum.
@@ -32,12 +31,11 @@ export default function SinglePostSideBar({postSlug , desc}) {
             quo deleniti suscipit, velit dolor veniam sapiente illo
           necessitatibus dolorum, rem omnis nostrum quibusdam odio e7x illum.{" "} */}
             {desc}
-
           </p>
 
           <div>
             <p className="text-4xl mb-[4%]">Comments</p>
-            <CommentBox postSlug={postSlug}/>
+            <CommentBox postSlug={postSlug} />
           </div>
 
           {/* <div className="flex  gap-x-3">

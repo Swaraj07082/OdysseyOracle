@@ -27,7 +27,6 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { app } from "@/utils/firebase";
 
-
 // const storage = getStorage(app);
 
 export default function page() {
@@ -79,7 +78,7 @@ export default function page() {
           // For instance, get the download URL: https://firebasestorage.googleapis.com/...
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             // console.log('File available at', downloadURL);
-            console.log(downloadURL)
+            console.log(downloadURL);
             setMedia(downloadURL);
           });
         }
@@ -111,9 +110,9 @@ export default function page() {
       .replace(/[\s_-]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
-      useEffect(()=>{
-        console.log(media);
-      }, [media])
+  useEffect(() => {
+    console.log(media);
+  }, [media]);
 
   const handleSubmit = async () => {
     const res = await fetch("/api/posts", {
@@ -242,6 +241,3 @@ export default function page() {
     </>
   );
 }
-
-
-

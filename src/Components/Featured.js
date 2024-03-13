@@ -26,8 +26,7 @@ export default function Featured() {
       </div>
 
       <div>
-
-      <ExploreFashion/>
+        <ExploreFashion />
 
         <div class=" title text-7xl text-center p-8 cs:text-[25px]">
           Personal narratives shared with warmth and authenticity.

@@ -70,7 +70,6 @@ export default function CustomizedSwitches() {
         label=" "
         onClick={toggle}
         className="h-[10px]"
-        
       />
 
       <Stack direction="row" spacing={1} alignItems="center"></Stack>

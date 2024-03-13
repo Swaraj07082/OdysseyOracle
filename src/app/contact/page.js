@@ -12,7 +12,10 @@ export default function page() {
     <>
       <div className="flex gap-x-20 items-center justify-center h-[500px] sm:flex-col sm:gap-y-20 sm:mt-44">
         <div>
-          <Link href="https://www.linkedin.com/in/swaraj-mali-567070254/" target="_blank">
+          <Link
+            href="https://www.linkedin.com/in/swaraj-mali-567070254/"
+            target="_blank"
+          >
             <Image
               src={linkedin}
               height={150}
@@ -40,8 +43,6 @@ export default function page() {
               height={150}
               width={150}
               className="mix-blend-multiply"
-
-
             />
           </Link>
         </div>
