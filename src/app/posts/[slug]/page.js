@@ -45,17 +45,19 @@ export default async function page({ params }) {
 
   const data = await getData(slug);
   console.log(data);
+  // const image = `/${data.post.img}`
+  // console.log(image)
 
   return (
     <>
       <SinglePostFeatured
         title={data.post.title}
-        img={data.post.name || ""}
+        img={data.post.img}
         name={data.post.user.name}
         createdAt={data.post.createdAt}
       />
 
-      <SinglePostSideBar desc={data.post.desc.slice(3, -4)} postSlug={slug} />
+      <SinglePostSideBar img={data.post.img} desc={data.post.desc.slice(3, -4)} postSlug={slug} />
       <Footer />
     </>
   );
