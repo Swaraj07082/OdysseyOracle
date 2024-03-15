@@ -30,6 +30,7 @@ import { useRouter } from "next/navigation";
 import { app, storage } from "@/utils/firebase";
 import { setTimeout } from "timers";
 import { v4 } from "uuid";
+import FirebaseImageUpload from "@/Components/FirebaseImageUpload";
 
 // const storage = getStorage(app);
 
@@ -173,8 +174,11 @@ const handleclick = ()=>{
   uploadBytes(imgref , file)
 }
 
+// var chalja = imgurl[0]
+// console.log(chalja)
 
 console.log(imgurl , "imgurl")
+
 
   return (
     <>
@@ -270,13 +274,10 @@ console.log(imgurl , "imgurl")
         </div>
         <div className="  text-[20px] sm:self-center self-end bg-[green] w-[100px] rounded-md text-center text-[#b3b3b1]">
           <button onClick={handleSubmit}>Publish</button>
-          <button onClick={ handleclick }>Upload</button>
+          {/* <button onClick={ handleclick }>Upload</button> */}
+          {/* <img src={chalja} alt="" /> */}
+          <FirebaseImageUpload/>
         </div>
-        {
-          imgurl.map((dataval)=>{
-            <Image src={dataval}  height={200} width={200} />
-          }) 
-        }
       </div>
     </>
   );
