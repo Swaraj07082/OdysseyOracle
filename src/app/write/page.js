@@ -36,24 +36,40 @@ import FirebaseImageUpload from "@/Components/FirebaseImageUpload";
 
 export default function page() {
   const [open, setopen] = useState(false);
-  const [file, setfile] = useState(null);
-  const [media, setMedia] = useState("");
+  // const [file, setfile] = useState(null);
+  // const [media, setMedia] = useState("");
   const [value, setvalue] = useState("");
   const [title, setTitle] = useState("");
   const [category, setcategory] = useState("");
-  const [imgurl , setimgurl] = useState([])
+  // const [imgurl , setimgurl] = useState([])
+  const [img,setImg] =useState('')
+  const [imgUrl,setImgUrl] =useState([])
   
   useEffect(()=>{
-    listAll(ref(storage,'files')).then(imgs=>{
-      console.log(imgs)
-      imgs.items.forEach(val=>{
-        getDownloadURL(val).then(url=>{
-          setimgurl(data=>[...data,url])
-  
+    listAll(ref(storage,"files")).then(imgs=>{
+        console.log(imgs)
+        imgs.items.forEach(val=>{
+            getDownloadURL(val).then(url=>{
+                setImgUrl(data=>[...data,url])
+            })
         })
-      })
     })
-  }, [])
+},[])
+
+const handleClick = () =>{
+  if(img !==null){
+     const imgRef =  ref(storage,`files/${v4()}`)
+     uploadBytes(imgRef,img).then(value=>{
+         console.log(value)
+         getDownloadURL(value.ref).then(url=>{
+             setImgUrl(data=>[...data,url])
+         })
+     })
+  }
+ }
+
+
+ var media = imgUrl[imgUrl.length-1]
   // const getURL = (a) => {
   //   return a;
   // };
@@ -148,7 +164,7 @@ export default function page() {
       body: JSON.stringify({
         title,
         desc: value,
-        img: media,
+        img: media || 'Upload an Image',
         slug: slugify(title),
         // catslug: "fashion",
         catslug: category,
@@ -169,15 +185,12 @@ export default function page() {
   };
 
   // console.log(category);
-const handleclick = ()=>{
-  const imgref = ref(storage , `files/${v4()}`)
-  uploadBytes(imgref , file)
-}
+
 
 // var chalja = imgurl[0]
 // console.log(chalja)
 
-console.log(imgurl , "imgurl")
+
 
 
   return (
@@ -223,7 +236,7 @@ console.log(imgurl , "imgurl")
                   type="file"
                   id="Photo"
                   className="hidden"
-                  onChange={(e) => setfile(e.target.files[0])}
+                  onChange={(e) => setImg(e.target.files[0])}
                 />
               </button>
               <button>
@@ -274,9 +287,9 @@ console.log(imgurl , "imgurl")
         </div>
         <div className="  text-[20px] sm:self-center self-end bg-[green] w-[100px] rounded-md text-center text-[#b3b3b1]">
           <button onClick={handleSubmit}>Publish</button>
-          {/* <button onClick={ handleclick }>Upload</button> */}
+          {/* <button onClick={handleClick}>Upload</button> */}
           {/* <img src={chalja} alt="" /> */}
-          <FirebaseImageUpload/>
+          {/* <FirebaseImageUpload/> */}
         </div>
       </div>
     </>
