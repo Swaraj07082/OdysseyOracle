@@ -12,6 +12,7 @@ export default function Featured() {
       <div class="flex flex-row pt-[40px] cs:pt-[20px]">
         <div className="image">
           <Image
+          loading="eager"
             src={blog}
             height={500}
             width={500}

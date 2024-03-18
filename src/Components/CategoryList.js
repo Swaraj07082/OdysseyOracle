@@ -43,9 +43,10 @@ export default async function CategoryList() {
             {/* used && cause in schema we have set img in Category model as not required , so if in case img is not set then avatar should not work , that's why item.img && */}
 
             <Link
+
               key={item._id}
               href={`/blog?page=1&cat=${item.title}`}
-              className="mt-[8px] lg:text-[15px] md:text-[13px]"
+              className="mt-[8px] lg:text-[15px] md:text-[13px] hover:underline"
             >
               {/* In mongodb we use _id */}
               {capitalizeFirstLetter(item.title)}

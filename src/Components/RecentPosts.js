@@ -85,7 +85,7 @@ export default async function RecentPosts({ page, cat }) {
                     officiis eligendi enim. */}
                     {item.desc}
                   </p>
-                  <Link href={`/posts/${item.title}`} className="underline">
+                  <Link href={`/posts/${item.title}`} className=" hover:underline">
                     Read More
                   </Link>
                 </div>
@@ -182,8 +182,45 @@ export default async function RecentPosts({ page, cat }) {
             <p className="text-2xl">Most Popular</p>
 
             {popular.map((item) => (
+            <Link href={`/posts/${item.title}`}>
+              <div className="flex gap-x-3  ">
+                <div>
+                  <Avatar
+                  src={item.img}
+                    sx={{ width: 60, height: 60 }}
+                    className="mt-[50px]"
+                  />
+                </div>
+
+                <div>
+                  <Chip
+                    size="small"
+                    label={capitalizeFirstLetter(item.catslug)}
+                    color="warning"
+                    className="mt-8"
+                  />
+
+                  <p className="text-[15px] mt-1">
+                    {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. */}
+                    {item.title}
+                  </p>
+
+                  <p className="text-[10px] mt-1">
+                    {item.createdAt.slice(0, 10)}
+                  </p>
+                </div>
+              </div>
+            </Link>
+          ))}
+
+
+
+
+
+            {/* {popular.map((item) => (
               <Link href={`/posts/${item.title}`}>
                 <div key={item.id}>
+                {item.img && <Avatar src={item.img} />}
                   <Chip
                     label={capitalizeFirstLetter(item.catslug)}
                     size="small"
@@ -191,16 +228,16 @@ export default async function RecentPosts({ page, cat }) {
                   />
                   <div className="pt-[8px] text-[15px]">
                     {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. */}
-
+{/* 
                     {item.title}
                   </div>
 
                   <div className="text-[10px] pt-1">
                     {item.createdAt.slice(0, 10)}
                   </div>
-                </div>
-              </Link>
-            ))}
+                </div> */} 
+              {/* </Link>
+            ))} */}
             {/* <div>
               <Chip label="Travel" size="small" color="warning" />
               <div className="pt-[8px] text-[15px]">
@@ -267,6 +304,7 @@ export default async function RecentPosts({ page, cat }) {
               <div className="flex gap-x-3 ml-[48px] ">
                 <div>
                   <Avatar
+                  src={item.img}
                     sx={{ width: 60, height: 60 }}
                     className="mt-[50px]"
                   />
