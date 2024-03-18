@@ -45,6 +45,7 @@ export default function page() {
   // const [imgurl , setimgurl] = useState([])
   const [img, setImg] = useState("");
   const [imgUrl, setImgUrl] = useState([]);
+  // const [upload, setUpload]= useState(false)
 
   useEffect(() => {
     listAll(ref(storage, "files")).then((imgs) => {
@@ -58,10 +59,22 @@ export default function page() {
   }, []);
 
   const handleClick = () => {
+    // upload == false ? <Loader/> : <>
+    {
+      /* </> */
+    }
     if (img !== null) {
       const imgRef = ref(storage, `files/${v4()}`);
+      alert("Image is being Uploaded");
       uploadBytes(imgRef, img).then((value) => {
+        // setUpload(true)
         console.log(value);
+        // setUpload(true)
+        // upload == false ? <Loader/> : <>
+        {
+          /* </> */
+        }
+        alert("Image Uploaded");
         getDownloadURL(value.ref).then((url) => {
           setImgUrl((data) => [...data, url]);
         });
@@ -172,7 +185,7 @@ export default function page() {
         img: media,
         slug: slugify(title),
         // catslug: "fashion",
-        catslug: category,
+        catslug: category || "culture",
       }),
     });
 
@@ -241,7 +254,7 @@ export default function page() {
                   onChange={(e) => setImg(e.target.files[0])}
                 />
               </button>
-              <button>
+              {/* <button>
                 <Image
                   className="mix-blend-multiply"
                   src={Upload}
@@ -249,8 +262,8 @@ export default function page() {
                   width={50}
                   style={{ borderRadius: "300px" }}
                 />
-              </button>
-              <button>
+              </button> */}
+              {/* <button>
                 <Image
                   className="mix-blend-multiply"
                   //  to remove white background from images
@@ -259,9 +272,17 @@ export default function page() {
                   width={50}
                   style={{ borderRadius: "300px" }}
                 />
-              </button>
+              </button> */}
             </>
           )}
+        </div>
+        <div className="ml-3">
+          <button
+            className="  text-[20px] sm:self-center bg-[green] w-[180px] rounded-md text-center text-[#b3b3b1]"
+            onClick={handleClick}
+          >
+            Upload Image
+          </button>
         </div>
         <div className=" ">
           <ReactQuill
@@ -272,7 +293,7 @@ export default function page() {
           />
         </div>
         <div>
-          <FormControl fullWidth>
+          <FormControl className="w-[105px] bg-white rounded-md">
             <InputLabel id="demo-simple-select-label">Category</InputLabel>
             <Select
               labelId="demo-simple-select-label"
@@ -284,12 +305,14 @@ export default function page() {
               <MenuItem value="fashion">Fashion</MenuItem>
               <MenuItem value="travel">Travel</MenuItem>
               <MenuItem value="food">Food</MenuItem>
+              <MenuItem value="culture">Culture</MenuItem>
+              <MenuItem value="coding">Coding</MenuItem>
+              <MenuItem value="style">Style</MenuItem>
             </Select>
           </FormControl>
         </div>
-        <div className="  text-[20px] sm:self-center self-end bg-[green] w-[100px] rounded-md text-center text-[#b3b3b1]">
+        <div className="text-[20px] sm:self-center self-end bg-[green] w-[100px] rounded-md text-center text-[#b3b3b1]">
           <button onClick={handleSubmit}>Publish</button>
-          {/* <button onClick={handleClick}>Upload</button> */}
           {/* <img src={chalja} alt="" /> */}
           {/* <FirebaseImageUpload/> */}
         </div>

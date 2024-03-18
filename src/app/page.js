@@ -9,6 +9,7 @@ import { count } from "console";
 
 export default function Home({ searchParams }) {
   const page = parseInt(searchParams.page) || 1;
+  console.log(page);
   // console.log(searchParams)
   // console.log(page)
   // searchparams should be int so converting it to int

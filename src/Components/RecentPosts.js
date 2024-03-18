@@ -34,7 +34,8 @@ export default async function RecentPosts({ page, cat }) {
   // const count= await getData(cat);
 
   let parseddata = Array.from(posts);
-  // console.log(parseddata)
+  console.log(parseddata);
+  // console.log(parseddata[0].title)
 
   const POST_PER_PAGE = 4;
   const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
@@ -57,10 +58,12 @@ export default async function RecentPosts({ page, cat }) {
             {parseddata?.map((item) => (
               <div className="flex" key={item.title}>
                 <Image
-                  src={blog}
+                  src={item.img}
+                  // src={blog}
                   height={400}
                   width={360}
-                  className="object-cover xl:hidden"
+                  objectFit="cover"
+                  className=" h-[280px] w-[400px] xl:hidden"
                 />
 
                 <div className="ml-[45px] xl:ml-[0px] ">
