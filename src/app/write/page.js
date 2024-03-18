@@ -4,6 +4,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+// import noimage from '../../../public/noimage.jpg'
 import {
   getStorage,
   ref,
@@ -30,7 +31,7 @@ import { useRouter } from "next/navigation";
 import { app, storage } from "@/utils/firebase";
 import { setTimeout } from "timers";
 import { v4 } from "uuid";
-import FirebaseImageUpload from "@/Components/FirebaseImageUpload";
+// import FirebaseImageUpload from "@/Components/FirebaseImageUpload";
 
 // const storage = getStorage(app);
 
@@ -42,34 +43,38 @@ export default function page() {
   const [title, setTitle] = useState("");
   const [category, setcategory] = useState("");
   // const [imgurl , setimgurl] = useState([])
-  const [img,setImg] =useState('')
-  const [imgUrl,setImgUrl] =useState([])
-  
-  useEffect(()=>{
-    listAll(ref(storage,"files")).then(imgs=>{
-        console.log(imgs)
-        imgs.items.forEach(val=>{
-            getDownloadURL(val).then(url=>{
-                setImgUrl(data=>[...data,url])
-            })
-        })
-    })
-},[])
+  const [img, setImg] = useState("");
+  const [imgUrl, setImgUrl] = useState([]);
 
-const handleClick = () =>{
-  if(img !==null){
-     const imgRef =  ref(storage,`files/${v4()}`)
-     uploadBytes(imgRef,img).then(value=>{
-         console.log(value)
-         getDownloadURL(value.ref).then(url=>{
-             setImgUrl(data=>[...data,url])
-         })
-     })
-  }
- }
+  useEffect(() => {
+    listAll(ref(storage, "files")).then((imgs) => {
+      console.log(imgs);
+      imgs.items.forEach((val) => {
+        getDownloadURL(val).then((url) => {
+          setImgUrl((data) => [...data, url]);
+        });
+      });
+    });
+  }, []);
 
+  const handleClick = () => {
+    if (img !== null) {
+      const imgRef = ref(storage, `files/${v4()}`);
+      uploadBytes(imgRef, img).then((value) => {
+        console.log(value);
+        getDownloadURL(value.ref).then((url) => {
+          setImgUrl((data) => [...data, url]);
+        });
+      });
+    }
+  };
 
- var media = imgUrl[imgUrl.length-1]
+  // var media = imgUrl[imgUrl.length - 1];
+  var media = "";
+
+  img === "" ? (media = "/noimage.jpg") : (media = imgUrl[imgUrl.length - 1]);
+
+  // img == ''? console.log(" no image") : console.log('image selected')
   // const getURL = (a) => {
   //   return a;
   // };
@@ -164,7 +169,7 @@ const handleClick = () =>{
       body: JSON.stringify({
         title,
         desc: value,
-        img: media || 'Upload an Image',
+        img: media,
         slug: slugify(title),
         // catslug: "fashion",
         catslug: category,
@@ -186,12 +191,8 @@ const handleClick = () =>{
 
   // console.log(category);
 
-
-// var chalja = imgurl[0]
-// console.log(chalja)
-
-
-
+  // var chalja = imgurl[0]
+  // console.log(chalja)
 
   return (
     <>
@@ -233,6 +234,7 @@ const handleClick = () =>{
                   />
                 </label>
                 <input
+                  // required
                   type="file"
                   id="Photo"
                   className="hidden"
