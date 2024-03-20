@@ -83,7 +83,7 @@ export default async function RecentPosts({ page, cat }) {
                     Aperiam ut rem ipsam quidem tempora magnam error eoseum
                     dignissimos eveniet nostrum. Beatae voluptate voluptas ipsa
                     officiis eligendi enim. */}
-                    {item.desc}
+                    {item.desc.replace(/[<p></p>]/g ,'')}
                   </p>
                   <Link href={`/posts/${item.title}`} className=" hover:underline">
                     Read More
