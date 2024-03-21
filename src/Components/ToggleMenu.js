@@ -12,10 +12,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-
-import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-// import Link from "next/navigation";
 
 export default function ToggleMenu() {
   const router = useRouter();
@@ -23,7 +20,6 @@ export default function ToggleMenu() {
   return (
     <>
       <Drawer>
-        {/* <DrawerTrigger>Open</DrawerTrigger> */}
         <DrawerTrigger>
           <div class="burger">
             <div class="line"></div>
@@ -74,16 +70,9 @@ export default function ToggleMenu() {
                 <DrawerTitle class="text-3xl text-white">About</DrawerTitle>
               </div>
             </div>
-
-            {/* <DrawerTitle>Are you absolutely sure?</DrawerTitle> */}
-
-            {/* <DrawerDescription>This action cannot be undone.</DrawerDescription> */}
           </DrawerHeader>
           <DrawerFooter>
-            {/* <Button>Submit</Button> */}
-            <DrawerClose>
-              {/* <Button variant="outline">Cancel</Button> */}
-            </DrawerClose>
+            <DrawerClose></DrawerClose>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

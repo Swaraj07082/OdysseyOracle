@@ -20,8 +20,6 @@ export default function Navbar() {
     <>
       <div class="flex items-center justify-between h-[80px] sm:justify-center ">
         <ul class=" logos flex flex-[1.6] gap-x-8">
-          {/* flex-[1.6] is customised tailwind css and is equal to flex:1.6 means we have divided the parent flexed container in such a way that logos take 1.6 part , OdyssseyOracle takes 1 part by using flex-[1] and links also take 1 part  , when the parent container is flexed we can use flex:2 for child items and divide the amount of space each child item gets , therefore here logos take 1.6 part name take 1 part and links take 1 part*/}
-
           <li>
             <FaFacebook />
           </li>
@@ -49,22 +47,20 @@ export default function Navbar() {
             <CustomizedSwitches />{" "}
           </li>
 
-          {/*
-          <Link href='/login'>
-          <li class="login">Login</li> */}
-
-          {/* </Link> */}
-
           {status === "unauthenticated" ? (
             <>
               <Link href={"/login"}>
-                <li class="login hover:cursor-pointer hover:underline" >Login</li>
+                <li class="login hover:cursor-pointer hover:underline">
+                  Login
+                </li>
               </Link>
             </>
           ) : (
             <>
               <Link href={"/write"}>
-                <li class="Write hover:cursor-pointer sm:hidden hover:underline">Write</li>
+                <li class="Write hover:cursor-pointer sm:hidden hover:underline">
+                  Write
+                </li>
               </Link>
               <li class="login hover:underline" onClick={signOut}>
                 Logout
@@ -78,16 +74,6 @@ export default function Navbar() {
             <li class="contact hover:underline">Contact</li>
           </Link>
 
-          {/* {status === "notauthenticated" ? (
-             <>
-             <li class="Write">Login</li>
-           </>
-          ) : (
-            <>
-              <li class="Write">Write</li>
-            </>
-          )} */}
-
           <Link href={"/about"}>
             <li class="about hover:underline">About</li>
           </Link>
@@ -100,4 +86,3 @@ export default function Navbar() {
     </>
   );
 }
-

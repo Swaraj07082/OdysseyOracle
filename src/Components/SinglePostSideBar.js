@@ -12,94 +12,12 @@ export default function SinglePostSideBar({ postSlug, desc }) {
     <>
       <div className="flex ">
         <div className=" flex flex-[3] flex-col gap-y-[70px] mt-[5.2%]">
-          <p>
-            {/* Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis praesentium cumque iste ipsa possimus provident rerum.
-            Velit ipsa cum eligendi distinctio est quas. Reprehenderit quis,
-            nostrum asperiores ad quae nisi nam quam! Aliquam sunt quasi totam
-            adipisci cum, aut recusandae illum ullam nesciunt praesentium facere
-            excepturi ipsum perferendis fuga quam enim magnam neque possimus
-            est, sapiente, facilis ratione. Quidem repellat sunt laboriosam
-            possimus laudantium ipsa et sit vitae commodi maxime, quod,
-            recusandae eligendi! Sed nemo natus similique obcaecati, voluptatem
-            sunt perferendis! Quae atque aut nisi natus nulla impedit doloribus,
-            cumque repellendus nesciunt sit. Eum quis iure earum, reprehenderit
-            ratione corrupti! Lorem ipsum, dolor sit amet consectetur
-            adipisicing elit. Corporis dolore, quia hic odit libero laudantium
-            tempore? Laborum quisquam eum quae eveniet non repudiandae sequi
-            deserunt. Quam repellat earum, voluptate fuga eligendi natus ipsa
-            quo deleniti suscipit, velit dolor veniam sapiente illo
-          necessitatibus dolorum, rem omnis nostrum quibusdam odio e7x illum.{" "} */}
-            {desc}
-          </p>
+          <p>{desc}</p>
 
           <div>
             <p className="text-4xl mb-[4%]">Comments</p>
             <CommentBox postSlug={postSlug} />
           </div>
-
-          {/* <div className="flex  gap-x-3">
-            <Avatar sx={{ width: 40, height: 40 }} />
-
-            <div className="flex flex-col">
-              <p className="text-[15px]">Swaraj Mali</p>
-              <p className="text-[15px]">8th February , 2023</p>
-              <div>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Obcaecati ipsa placeat ab cum adipisci architecto molestias
-                  sequi consectetur provident fugiat.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex  gap-x-3">
-            <Avatar sx={{ width: 40, height: 40 }} />
-
-            <div className="flex flex-col">
-              <p className="text-[15px]">Swaraj Mali</p>
-              <p className="text-[15px]">8th February , 2023</p>
-              <div>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Obcaecati ipsa placeat ab cum adipisci architecto molestias
-                  sequi consectetur provident fugiat.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex  gap-x-3">
-            <Avatar sx={{ width: 40, height: 40 }} />
-
-            <div className="flex flex-col">
-              <p className="text-[15px]">Swaraj Mali</p>
-              <p className="text-[15px]">8th February , 2023</p>
-              <div>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Obcaecati ipsa placeat ab cum adipisci architecto molestias
-                  sequi consectetur provident fugiat.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex  gap-x-3 mb-">
-            <Avatar sx={{ width: 40, height: 40 }} />
-
-            <div className="flex flex-col">
-              <p className="text-[15px]">Swaraj Mali</p>
-              <p className="text-[15px]">8th February , 2023</p>
-              <div>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Obcaecati ipsa placeat ab cum adipisci architecto molestias
-                  sequi consectetur provident fugiat.
-                </p>
-              </div>
-            </div>
-          </div> */}
         </div>
 
         <div className="flex-[1.25] mt-[50px] lg:hidden ">

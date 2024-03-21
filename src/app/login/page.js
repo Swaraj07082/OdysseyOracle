@@ -5,19 +5,13 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-// import getBasicProfile from 'https://apis.google.com/js/platform.js'
-// import { signIn } from "next-auth/react";
-
 export default function page() {
   const router = useRouter();
 
   const { data, status } = useSession();
 
-  // console.log(data,status);
-
   if (status === "loading") {
     return <Loader />;
-    // return <div>Loading...</div>
   }
 
   if (status == "authenticated") {

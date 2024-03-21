@@ -5,7 +5,6 @@ import { NextResponse } from "next/server";
 export const GET = async (req) => {
   const { searchParams } = new URL(req.url);
   const postSlug = searchParams.get("postSlug");
-  // console.log(req.url)
 
   try {
     const comments = await prisma.Comment.findMany({
@@ -25,10 +24,6 @@ export const GET = async (req) => {
 };
 
 export const POST = async (req) => {
-  // const { searchParams } = new URL(req.url);
-  // const postSlug = searchParams.get("postSlug");
-  // // console.log(req.url)
-  // console.log(req)
   const session = await getAuthSession();
 
   if (!session) {

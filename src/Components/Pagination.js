@@ -30,7 +30,6 @@ export default function Pagination({ page, hasNext, hasPrev, cat }) {
           borderTopRightRadius: "8px",
           borderBottomRightRadius: "8px",
         }}
-        // onClick={() => router.push(`?page=${page + 1}&cat=${cat||''}`)}
         onClick={() => {
           cat
             ? router.push(`?page=${page + 1}&cat=${cat || ""}`)
@@ -40,11 +39,6 @@ export default function Pagination({ page, hasNext, hasPrev, cat }) {
       >
         Next
       </button>
-
-      {/* <div className="join grid grid-cols-2">
-  <button className="join-item btn btn-outline">Previous page</button>
-  <button className="join-item btn btn-outline">Next</button>
-</div> */}
     </div>
   );
 }

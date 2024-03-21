@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import blog from "../../public/blog.jpg";
 import { Avatar } from "@mui/material";
 
 export default function SinglePostFeatured({ title, name, createdAt, img }) {
@@ -9,10 +8,7 @@ export default function SinglePostFeatured({ title, name, createdAt, img }) {
       <div>
         <div class="flex flex-row pt-[40px]">
           <div className="postitle overflow-hidden flex-1  pr-[20px] text-left pt-[32px]">
-            <p class="text-5xl leading-relaxed pb-[20px]">
-              {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. */}
-              {title}
-            </p>
+            <p class="text-5xl leading-relaxed pb-[20px]">{title}</p>
 
             <div className="flex  gap-x-3 lg:justify-center">
               <Avatar sx={{ width: 50, height: 50 }} />

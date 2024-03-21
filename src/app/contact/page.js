@@ -4,7 +4,6 @@ import Image from "next/image";
 import linkedin from "../../../public/linkedin.png";
 import twitter from "../../../public/twitter.png";
 import github from "../../../public/github.png";
-
 import Link from "next/link";
 
 export default function page() {

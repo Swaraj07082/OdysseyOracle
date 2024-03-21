@@ -1,22 +1,15 @@
 import Image from "next/image";
-import blog from "../../public/blog.jpg";
 import Link from "next/link";
 import * as React from "react";
 import Chip from "@mui/material/Chip";
-import Stack from "@mui/material/Stack";
 import { Avatar } from "@mui/material";
-import { redirect } from "next/navigation";
-
 import PaginationDemo from "@/Components/Pagination";
-
-// const router = useRouter();
 
 const getData = async (page, cat) => {
   const res = await fetch(
     `http://localhost:3000/api/posts?page=${page}&cat=${cat || ""}`,
     {
       cache: "no-store",
-      // by default nextjs caches your request , we dont wanna do that cause it's just a project
     }
   );
 
@@ -28,21 +21,13 @@ const getData = async (page, cat) => {
 };
 
 export default async function RecentPosts({ page, cat }) {
-  // console.log(page)
-  // console.log(cat)
   const { posts, count, popular } = await getData(page, cat);
-  // const count= await getData(cat);
-
   let parseddata = Array.from(posts);
   console.log(parseddata);
-  // console.log(parseddata[0].title)
 
   const POST_PER_PAGE = 4;
   const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
   const hasPrev = POST_PER_PAGE * (page - 1) > 0;
-
-  // console.log(data);
-
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
@@ -59,7 +44,6 @@ export default async function RecentPosts({ page, cat }) {
               <div className="flex" key={item.title}>
                 <Image
                   src={item.img}
-                  // src={blog}
                   height={400}
                   width={360}
                   objectFit="cover"
@@ -76,102 +60,19 @@ export default async function RecentPosts({ page, cat }) {
 
                   <p className="text-2xl mt-[25px] mb-[25px] cs:text-[15px] cs:mt-[18px] cs:mb-[18px]">
                     {item.title}
-                    {/* Lorem ipsum dolor, sit amet consectetur adipisicing elit. */}
                   </p>
                   <p className="mb-[25px] text-[#626262] cs:text-[12px] cs:mb-[18px]">
-                    {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Aperiam ut rem ipsam quidem tempora magnam error eoseum
-                    dignissimos eveniet nostrum. Beatae voluptate voluptas ipsa
-                    officiis eligendi enim. */}
-                    {item.desc.replace(/[<p></p>]/g ,'')}
+                    {item.desc.replace(/[<p></p>]/g, "")}
                   </p>
-                  <Link href={`/posts/${item.title}`} className=" hover:underline">
+                  <Link
+                    href={`/posts/${item.title}`}
+                    className=" hover:underline"
+                  >
                     Read More
                   </Link>
                 </div>
               </div>
             ))}
-
-            {/* <div className="flex">
-            <Image
-            src={blog}
-            height={400}
-            width={360}
-            className="object-cover  xl:hidden"
-            />
-            
-            <div className="ml-[45px] xl:ml-[0px]">
-            <span>02.02.2024</span>
-              <span className="ml-[15px]">CULTURE</span>
-
-              <p className="text-2xl mt-[25px] mb-[25px]">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              </p>
-              <p className="mb-[25px] text-[#626262]">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Aperiam ut rem ipsam quidem tempora magnam error eoseum
-              dignissimos eveniet nostrum. Beatae voluptate voluptas ipsa
-              officiis eligendi enim.
-              </p>
-              <Link href={"/"} className="underline">
-              Read More
-              </Link>
-              </div>
-              </div>
-              
-              <div className="flex">
-              <Image
-              src={blog}
-              height={400}
-              width={360}
-              className="object-cover  xl:hidden"
-              />
-              
-              <div className="ml-[45px] xl:ml-[0px]">
-              <span>02.02.2024</span>
-              <span className="ml-[15px]">CULTURE</span>
-              
-              <p className="text-2xl mt-[25px] mb-[25px] ">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              </p>
-              <p className="mb-[25px]  text-[#626262]">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Aperiam ut rem ipsam quidem tempora magnam error eoseum
-              dignissimos eveniet nostrum. Beatae voluptate voluptas ipsa
-              officiis eligendi enim.
-              </p>
-              <Link href={"/"} className="underline">
-              Read More
-              </Link>
-              </div>
-              </div>
-              
-              <div className="flex">
-            <Image
-              src={blog}
-              height={400}
-              width={360}
-              className="object-cover  xl:hidden"
-              />
-              
-              <div className="ml-[45px] xl:ml-[0px]">
-              <span>02.02.2024</span>
-              <span className="ml-[15px]">CULTURE</span>
-              
-              <p className="text-2xl mt-[25px] mb-[25px]">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              </p>
-              <p className="mb-[25px] text-[#626262]">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Aperiam ut rem ipsam quidem tempora magnam error eoseum
-              dignissimos eveniet nostrum. Beatae voluptate voluptas ipsa
-              officiis eligendi enim.
-              </p>
-              <Link href={"/"} className="underline">
-              Read More
-              </Link>
-              </div>
-            </div> */}
           </div>
         </div>
 
@@ -182,93 +83,33 @@ export default async function RecentPosts({ page, cat }) {
             <p className="text-2xl">Most Popular</p>
 
             {popular.map((item) => (
-            <Link href={`/posts/${item.title}`}>
-              <div className="flex gap-x-3  ">
-                <div>
-                  <Avatar
-                  src={item.img}
-                    sx={{ width: 60, height: 60 }}
-                    className="mt-[50px]"
-                  />
-                </div>
-
-                <div>
-                  <Chip
-                    size="small"
-                    label={capitalizeFirstLetter(item.catslug)}
-                    color="warning"
-                    className="mt-8"
-                  />
-
-                  <p className="text-[15px] mt-1">
-                    {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. */}
-                    {item.title}
-                  </p>
-
-                  <p className="text-[10px] mt-1">
-                    {item.createdAt.slice(0, 10)}
-                  </p>
-                </div>
-              </div>
-            </Link>
-          ))}
-
-
-
-
-
-            {/* {popular.map((item) => (
               <Link href={`/posts/${item.title}`}>
-                <div key={item.id}>
-                {item.img && <Avatar src={item.img} />}
-                  <Chip
-                    label={capitalizeFirstLetter(item.catslug)}
-                    size="small"
-                    color="warning"
-                  />
-                  <div className="pt-[8px] text-[15px]">
-                    {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. */}
-{/* 
-                    {item.title}
+                <div className="flex gap-x-3  ">
+                  <div>
+                    <Avatar
+                      src={item.img}
+                      sx={{ width: 60, height: 60 }}
+                      className="mt-[50px]"
+                    />
                   </div>
 
-                  <div className="text-[10px] pt-1">
-                    {item.createdAt.slice(0, 10)}
+                  <div>
+                    <Chip
+                      size="small"
+                      label={capitalizeFirstLetter(item.catslug)}
+                      color="warning"
+                      className="mt-8"
+                    />
+
+                    <p className="text-[15px] mt-1">{item.title}</p>
+
+                    <p className="text-[10px] mt-1">
+                      {item.createdAt.slice(0, 10)}
+                    </p>
                   </div>
-                </div> */} 
-              {/* </Link>
-            ))} */}
-            {/* <div>
-              <Chip label="Travel" size="small" color="warning" />
-              <div className="pt-[8px] text-[15px]">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              </div>
-              <div className="text-[10px] pt-1"> Swaraj - 02.02.2024</div>
-            </div>
-
-            <div>
-              <Chip label="Travel" size="small" color="warning" />
-              <div className="pt-[8px] text-[15px]">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              </div>
-              <div className="text-[10px]  pt-1"> Swaraj - 02.02.2024</div>
-            </div>
-
-            <div>
-              <Chip label="Travel" size="small" color="warning" />
-              <div className="pt-[8px] text-[15px]">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              </div>
-              <div className="text-[10px]  pt-1"> Swaraj - 02.02.2024</div>
-            </div>
-
-            <div>
-              <Chip label="Travel" size="small" color="warning" />
-              <div className="pt-[8px] text-[15px]">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              </div>
-              <div className="text-[10px]  pt-1"> Swaraj - 02.02.2024</div>
-            </div> */}
+                </div>
+              </Link>
+            ))}
           </div>
 
           <div className="mt-[60px] ml-[48px]">Discover By Topic!</div>
@@ -304,7 +145,7 @@ export default async function RecentPosts({ page, cat }) {
               <div className="flex gap-x-3 ml-[48px] ">
                 <div>
                   <Avatar
-                  src={item.img}
+                    src={item.img}
                     sx={{ width: 60, height: 60 }}
                     className="mt-[50px]"
                   />
@@ -318,10 +159,7 @@ export default async function RecentPosts({ page, cat }) {
                     className="mt-8"
                   />
 
-                  <p className="text-[15px] mt-1">
-                    {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. */}
-                    {item.title}
-                  </p>
+                  <p className="text-[15px] mt-1">{item.title}</p>
 
                   <p className="text-[10px] mt-1">
                     {item.createdAt.slice(0, 10)}
@@ -330,90 +168,8 @@ export default async function RecentPosts({ page, cat }) {
               </div>
             </Link>
           ))}
-          {/* <div className="flex gap-x-3 ml-[48px] ">
-            <div>
-              <Avatar sx={{ width: 60, height: 60 }} className="mt-[50px]" />
-            </div>
-
-            <div>
-              <Chip
-                size="small"
-                label="travel"
-                color="warning"
-                className="mt-8"
-              />
-
-              <p className="text-[15px] mt-1">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </p>
-
-              <p className="text-[10px] mt-1">Swaraj-02.02.2024</p>
-            </div>
-          </div>
-
-          <div className="flex gap-x-3  ml-[48px]">
-            <div>
-              <Avatar sx={{ width: 60, height: 60 }} className="mt-[50px]" />
-            </div>
-
-            <div>
-              <Chip
-                size="small"
-                label="travel"
-                color="warning"
-                className="mt-8"
-              />
-
-              <p className="text-[15px] mt-1">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </p>
-
-              <p className="text-[10px] mt-1">Swaraj-02.02.2024</p>
-            </div>
-          </div>
-          <div className="flex gap-x-3  ml-[48px]">
-            <div>
-              <Avatar sx={{ width: 60, height: 60 }} className="mt-[50px]" />
-            </div>
-
-            <div>
-              <Chip
-                size="small"
-                label="travel"
-                color="warning"
-                className="mt-8"
-              />
-
-              <p className="text-[15px] mt-1">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </p>
-
-              <p className="text-[10px] mt-1">Swaraj-02.02.2024</p>
-            </div>
-          </div>
-          <div className="flex gap-x-3 ml-[48px] ">
-            <div>
-              <Avatar sx={{ width: 60, height: 60 }} className="mt-[50px]" />
-            </div>
-
-            <div>
-              <Chip
-                size="small"
-                label="travel"
-                color="warning"
-                className="mt-8"
-              />
-
-              <p className="text-[15px] mt-1">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </p>
-
-              <p className="text-[10px] mt-1">Swaraj-02.02.2024</p>
-            </div>
-          </div> */}
         </div>
       </div>
-
       <PaginationDemo
         page={page}
         cat={cat}

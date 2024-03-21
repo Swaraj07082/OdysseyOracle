@@ -15,12 +15,12 @@
   box-sizing: border-box;
 }
 
-/* good practice */
+
 
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  /* horiontal scroll bar na aajaye */
+ 
 }
 
 .container{
@@ -84,14 +84,10 @@ padding-left: 0px;
 .light{
 
 background-color: #0f172a;
-/* background-color: black; */
 color: #ddd;
 }
 
-/* 
-.light button {
-  background-color: red;
-} */
+
 
 @media screen and (max-width:1280px) {
   .logos{
@@ -251,7 +247,6 @@ font-size: 28px;
   background: #fefcfc;
 }
 
-/* Snow Theme */
 .app .ql-snow.ql-toolbar {
   display: block;
   background: #eaecec;
@@ -259,7 +254,7 @@ font-size: 28px;
   border-top-right-radius: 0.5em;
 }
 
-/* Bubble Theme */
+
   .ql-editor {
   min-height: 170px;
   font-size: 20px;
@@ -271,10 +266,6 @@ font-size: 28px;
   color: #b3b3b1;
 }
 
-
-/* .ql-tooltip-editor {
-  display: none;
-}  */
 
 .quill > .ql-container.ql-snow{
   border: none;

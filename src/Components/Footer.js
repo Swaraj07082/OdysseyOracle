@@ -5,7 +5,6 @@ import { FaYoutube } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 import Link from "next/link";
-import blog from '../../public/blog.jpg'
 
 export default function Footer() {
   return (
@@ -18,8 +17,7 @@ export default function Footer() {
           </div>
 
           <div className="mt-5 cs:text-[15px] cs:text-center md:hidden pr-[100px]">
-          Personal narratives shared with warmth and authenticity.
-          
+            Personal narratives shared with warmth and authenticity.
           </div>
 
           <ul className="flex gap-x-5 mt-5 text-[20px] cs:justify-center ">

@@ -19,17 +19,12 @@ const fetcher = async (url) => {
 };
 
 export default function CommentBox({ postSlug }) {
-  // const status= useSession()
-  // this won't work
-
   console.log(postSlug);
   const { status } = useSession();
-
   const { data, mutate, isLoading } = useSWR(
     `http://localhost:3000/api/comments?postSlug=${postSlug}`,
     fetcher
   );
-  // console.log(data);
 
   const [desc, setDesc] = useState("");
 
@@ -37,7 +32,6 @@ export default function CommentBox({ postSlug }) {
     await fetch("/api/comments", {
       method: "POST",
       body: JSON.stringify({ desc, postSlug }),
-      // for making a comment we need to pass the postSlug
     });
     mutate();
   };
@@ -77,32 +71,11 @@ export default function CommentBox({ postSlug }) {
                     <p className="text-[15px]">Swaraj Mali</p>
                     <p className="text-[15px]">8th February , 2023</p>
                     <div>
-                      {/* <p>
-       Lorem ipsum dolor sit amet consectetur adipisicing elit.
-       Obcaecati ipsa placeat ab cum adipisci architecto molestias
-       sequi consectetur provident fugiat.
-     </p> */}
-
                       <p>{item.desc}</p>
                     </div>
                   </div>
                 </div>
               ))}
-          {/* <div className="flex  gap-x-3">
-            <Avatar sx={{ width: 40, height: 40 }} />
-
-            <div className="flex flex-col">
-              <p className="text-[15px]">Swaraj Mali</p>
-              <p className="text-[15px]">8th February , 2023</p>
-              <div>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Obcaecati ipsa placeat ab cum adipisci architecto molestias
-                  sequi consectetur provident fugiat.
-                </p>
-              </div>
-            </div>
-          </div> */}
         </div>
       </div>
     </>
