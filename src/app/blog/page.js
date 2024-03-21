@@ -1,7 +1,7 @@
 import RecentPosts from "@/Components/RecentPosts";
 import Footer from "@/Components/Footer";
 import StyleBlog from "@/Components/StyleBlog";
-import { Pagination } from "@/Components/ui/pagination";
+import { Pagination } from "@/Components/ui/Pagination";
 
 export default function blog({ searchParams }) {
   const page = parseInt(searchParams.page) || 1;

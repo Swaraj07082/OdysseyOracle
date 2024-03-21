@@ -4,7 +4,7 @@ import { FaFacebook } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaTwitter } from "react-icons/fa";
-import CustomizedSwitches from "./ui/switch";
+import CustomizedSwitches from "./ui/Switch";
 
 import React from "react";
 
