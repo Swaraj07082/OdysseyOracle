@@ -5,7 +5,7 @@ import SinglePostSideBar from "@/Components/SinglePostSideBar";
 import Footer from "@/Components/Footer";
 
 const getData = async (slug) => {
-  const res = await fetch(`${process.env.API_URL}/api/posts/${slug}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/${slug}`, {
     cache: "no-store",
   });
 

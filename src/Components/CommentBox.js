@@ -24,7 +24,7 @@ export default function CommentBox({ postSlug }) {
   const { status } = useSession();
   // to fetch in use client , use useSWR
   const { data, mutate, isLoading } = useSWR(
-    `${process.env.API_URL}/api/comments?postSlug=${postSlug}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/api/comments?postSlug=${postSlug}`,
     fetcher
   );
 
