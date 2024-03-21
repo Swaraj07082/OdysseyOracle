@@ -5,9 +5,10 @@ import Link from "next/link";
 import React, { useState } from "react";
 import useSWR from "swr";
 import { Avatar } from "@mui/material";
+import fetchPonyfill from "fetch-ponyfill";
 
 const fetcher = async (url) => {
-  const res = await fetch(url);
+  const res = await fetchPonyfill().fetch(url);
 
   const data = await res.json();
 
@@ -31,7 +32,7 @@ export default function CommentBox({ postSlug }) {
   const [desc, setDesc] = useState("");
 
   const handleSubmit = async () => {
-    await fetch("/api/comments", {
+    await fetchPonyfill().fetch("/api/comments", {
       method: "POST",
       body: JSON.stringify({ desc, postSlug }),
     });

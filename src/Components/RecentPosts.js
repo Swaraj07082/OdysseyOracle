@@ -4,9 +4,10 @@ import * as React from "react";
 import Chip from "@mui/material/Chip";
 import { Avatar } from "@mui/material";
 import PaginationDemo from "@/Components/Pagination";
+import fetchPonyfill from "fetch-ponyfill";
 
 const getData = async (page, cat) => {
-  const res = await fetch(
+  const res = await fetchPonyfill().fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/api/posts?page=${page}&cat=${cat || ""}`,
     {
       cache: "no-store",

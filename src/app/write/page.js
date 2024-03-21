@@ -24,6 +24,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { app, storage } from "@/utils/firebase";
 import { v4 } from "uuid";
+import fetchPonyfill from "fetch-ponyfill";
 export const dynamic = 'force-dynamic'
 
 export default function Page() {
@@ -90,7 +91,7 @@ export default function Page() {
       .replace(/^-+|-+$/g, "");
 
   const handleSubmit = async () => {
-    const res = await fetch("/api/posts", {
+    const res = await  fetchPonyfill.fetch("/api/posts", {
       method: "POST",
       body: JSON.stringify({
         title,
