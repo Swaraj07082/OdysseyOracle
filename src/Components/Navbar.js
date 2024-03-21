@@ -58,24 +58,24 @@ export default function Navbar() {
           {status === "unauthenticated" ? (
             <>
               <Link href={"/login"}>
-                <li class="login hover:cursor-pointer">Login</li>
+                <li class="login hover:cursor-pointer hover:underline" >Login</li>
               </Link>
             </>
           ) : (
             <>
               <Link href={"/write"}>
-                <li class="Write hover:cursor-pointer sm:hidden">Write</li>
+                <li class="Write hover:cursor-pointer sm:hidden hover:underline">Write</li>
               </Link>
-              <li class="login" onClick={signOut}>
+              <li class="login hover:underline" onClick={signOut}>
                 Logout
               </li>
             </>
           )}
           <Link href={"/"}>
-            <li class="homepage">Homepage</li>
+            <li class="homepage hover:underline">Homepage</li>
           </Link>
           <Link href={"/contact"}>
-            <li class="contact">Contact</li>
+            <li class="contact hover:underline">Contact</li>
           </Link>
 
           {/* {status === "notauthenticated" ? (
@@ -89,7 +89,7 @@ export default function Navbar() {
           )} */}
 
           <Link href={"/about"}>
-            <li class="about">About</li>
+            <li class="about hover:underline">About</li>
           </Link>
 
           <li class="togglemenu">

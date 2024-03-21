@@ -146,22 +146,22 @@ export default function SinglePostSideBar({ postSlug, desc }) {
           <div className="mt-[0px] ml-[48px] text-2xl">Categories</div>
 
           <div className="grid ml-[48px] mt-7">
-            <div className="bg-[#57c4ff31] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center">
+            <div className="bg-[#57c4ff31] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center hover:underline">
               Style
             </div>
-            <div className="bg-[#da85c731] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center">
+            <div className="bg-[#da85c731] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center hover:underline">
               Fashion
             </div>
-            <div className="bg-[#7fb88133] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center">
+            <div className="bg-[#7fb88133] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center hover:underline">
               Food
             </div>
-            <div className="bg-[#ff795736] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center">
+            <div className="bg-[#ff795736] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center hover:underline">
               Travel
             </div>
-            <div className="bg-[#ffb04f45] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center">
+            <div className="bg-[#ffb04f45] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center hover:underline">
               Culture
             </div>
-            <div className="bg-[#5e4fff31] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center">
+            <div className="bg-[#5e4fff31] text-center rounded-md h-[40px] w-[80px] flex items-center justify-center hover:underline">
               Coding
             </div>
           </div>
