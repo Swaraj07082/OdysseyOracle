@@ -1,4 +1,5 @@
 import prisma from "@/utils/connect";
+import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 
 export const GET = async () => {
