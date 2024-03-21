@@ -24,6 +24,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { app, storage } from "@/utils/firebase";
 import { v4 } from "uuid";
+export const dynamic = 'force-dynamic'
 
 export default function Page() {
   const [open, setopen] = useState(false);

@@ -17,13 +17,14 @@ const fetcher = async (url) => {
 
   return data;
 };
+export const dynamic = 'force-dynamic'
 
 export default function CommentBox({ postSlug }) {
   console.log(postSlug);
   const { status } = useSession();
   // to fetch in use client , use useSWR
   const { data, mutate, isLoading } = useSWR(
-    `http://127.0.0.1:3000/api/comments?postSlug=${postSlug}`,
+    `http://localhost:3000/api/comments?postSlug=${postSlug}`,
     fetcher
   );
 

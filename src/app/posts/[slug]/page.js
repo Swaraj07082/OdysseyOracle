@@ -5,7 +5,7 @@ import SinglePostSideBar from "@/Components/SinglePostSideBar";
 import Footer from "@/Components/Footer";
 
 const getData = async (slug) => {
-  const res = await fetch(`http://127.0.0.1:3000/api/posts/${slug}`, {
+  const res = await fetch(`http://localhost:3000/api/posts/${slug}`, {
     cache: "no-store",
   });
 
@@ -15,6 +15,7 @@ const getData = async (slug) => {
     return res.json();
   }
 };
+export const dynamic = 'force-dynamic'
 
 export default async function Page({ params }) {
   const { slug } = params;

@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 
 const getData = async (slug) => {
-  const res = await fetch(`http://127.0.0.1:3000/api/posts`, {
+  const res = await fetch(`http://localhost:3000/api/posts`, {
     cache: "no-store",
   });
 
@@ -17,6 +17,7 @@ const getData = async (slug) => {
 const data = await getData();
 const { popular } = data;
 const item = popular[0];
+export const dynamic = 'force-dynamic'
 
 export default function Featured() {
   return (

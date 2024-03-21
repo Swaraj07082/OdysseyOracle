@@ -7,7 +7,7 @@ import PaginationDemo from "@/Components/Pagination";
 
 const getData = async (page, cat) => {
   const res = await fetch(
-    `http://127.0.0.1:3000/api/posts?page=${page}&cat=${cat || ""}`,
+    `http://localhost:3000/api/posts?page=${page}&cat=${cat || ""}`,
     {
       cache: "no-store",
     }
@@ -19,6 +19,7 @@ const getData = async (page, cat) => {
     return res.json();
   }
 };
+export const dynamic = 'force-dynamic'
 
 export default async function RecentPosts({ page, cat }) {
   const { posts, count, popular } = await getData(page, cat);
