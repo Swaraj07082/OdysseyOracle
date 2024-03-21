@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 
 const getData = async (slug) => {
-  const res = await fetch(`http://127.0.0.1:3000/api/posts`, {
+  const res = await fetch(`${process.env.API_URL}/api/posts`, {
     cache: "no-store",
   });
 

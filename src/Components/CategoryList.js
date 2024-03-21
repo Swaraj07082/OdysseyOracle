@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Avatar } from "@mui/material";
 
 const getData = async () => {
-  const res = await fetch("http://127.0.0.1:3000/api/categories", {
+  const res = await fetch("${process.env.API_URL}/api/categories", {
     cache: "no-store",
   });
 

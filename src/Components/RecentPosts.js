@@ -7,7 +7,7 @@ import PaginationDemo from "@/Components/Pagination";
 
 const getData = async (page, cat) => {
   const res = await fetch(
-    `http://127.0.0.1:3000/api/posts?page=${page}&cat=${cat || ""}`,
+    `${process.env.API_URL}/api/posts?page=${page}&cat=${cat || ""}`,
     {
       cache: "no-store",
     }
