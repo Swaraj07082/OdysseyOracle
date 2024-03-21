@@ -21,6 +21,7 @@ const fetcher = async (url) => {
 export default function CommentBox({ postSlug }) {
   console.log(postSlug);
   const { status } = useSession();
+  // to fetch in use client , use useSWR
   const { data, mutate, isLoading } = useSWR(
     `http://localhost:3000/api/comments?postSlug=${postSlug}`,
     fetcher
@@ -64,7 +65,7 @@ export default function CommentBox({ postSlug }) {
           {isLoading
             ? "loading"
             : data.map((item) => (
-                <div className="flex  gap-x-3">
+                <div key={item.img} className="flex  gap-x-3">
                   <Avatar sx={{ width: 40, height: 40 }} />
 
                   <div className="flex flex-col">

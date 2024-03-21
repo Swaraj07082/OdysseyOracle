@@ -30,7 +30,7 @@ export default async function CategoryList() {
         {parsedata?.map((item) => (
           <div
             className=" flex justify-center gap-x-[10px] flex-1 text-center bg-[#57c4ff31] h-[60px] pt-[10px] m-3 mt-6 rounded-md lg:pt-[4px] lg:h-[200px] "
-            key={item.title}
+            key={item.img}
           >
             {item.img && <Avatar src={item.img} />}
             <Link

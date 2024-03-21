@@ -28,6 +28,7 @@ export default function Featured() {
       <div class="flex flex-row pt-[40px] cs:pt-[20px]">
         <div className="image">
           <Image
+          alt="Image Not Found"
             loading="eager"
             src={item.img}
             height={500}

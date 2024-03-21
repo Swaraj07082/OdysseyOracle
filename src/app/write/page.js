@@ -25,7 +25,7 @@ import { useRouter } from "next/navigation";
 import { app, storage } from "@/utils/firebase";
 import { v4 } from "uuid";
 
-export default function page() {
+export default function Page() {
   const [open, setopen] = useState(false);
   const [value, setvalue] = useState("");
   const [title, setTitle] = useState("");
@@ -130,6 +130,7 @@ export default function page() {
           <button onClick={() => setopen(!open)}>
             {" "}
             <Image
+             alt="Image Not Found"
               className="mix-blend-multiply"
               src={Plus}
               height={50}
@@ -142,6 +143,7 @@ export default function page() {
               <button>
                 <label htmlFor="Photo">
                   <Image
+                   alt="Image Not Found"
                     className="mix-blend-multiply"
                     src={Photo}
                     height={50}

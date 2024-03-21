@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import about from "../../../public/about.jpg";
-export default function page() {
+export default function Page() {
   return (
     <>
       <div className="flex mt-18 ">
@@ -14,6 +14,7 @@ export default function page() {
           content that spans a wide range of topics.
           <br />
           <Image
+          alt="Image Not Found"
             src={about}
             height={400}
             width={400}
@@ -22,7 +23,7 @@ export default function page() {
           Founded on the belief that everyone has a story to tell and a unique
           perspective to share, we strive to be a platform that celebrates
           diversity, fosters in8clusivity, and encourages dialogue. Whether
-          you're a seasoned expert or a curious enthusiast, there's something
+          you&apos;re a seasoned expert or a curious enthusiast, there&apos;s something
           for everyone here.
           <br />
           Our team is comprised of dedicated writers, thinkers, and creators are
@@ -32,9 +33,9 @@ export default function page() {
           inspiration and ignite curiosity in our readers.
           <br />
           But Blog Name is more than just a collection of words on a screen.
-          It's a community—a place where like-minded individuals come together
+          It&apos;s a community—a place where like-minded individuals come together
           to connect, collaborate, and learn from one another. We value the
-          relationships we've built with our readers and cherish the
+          relationships we&apos;ve built with our readers and cherish the
           conversations that take place within our digital walls.
           <br />
           As we continue to evolve and grow, our commitment to excellence

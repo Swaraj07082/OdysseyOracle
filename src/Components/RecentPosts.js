@@ -41,8 +41,9 @@ export default async function RecentPosts({ page, cat }) {
 
           <div className="flex flex-col mt-[50px] gap-y-[55px]">
             {parseddata?.map((item) => (
-              <div className="flex" key={item.title}>
+              <div className="flex" key={item.img}>
                 <Image
+                alt="Image Not Found"
                   src={item.img}
                   height={400}
                   width={360}
@@ -77,13 +78,13 @@ export default async function RecentPosts({ page, cat }) {
         </div>
 
         <div className="flex-[1.25] mt-[50px] lg:hidden ">
-          <div className="ml-12">What's hot</div>
+          <div className="ml-12">What&apos;s hot</div>
 
           <div className="flex flex-col gap-y-[25px] ml-12">
             <p className="text-2xl">Most Popular</p>
 
             {popular.map((item) => (
-              <Link href={`/posts/${item.title}`}>
+              <Link key={item.img} href={`/posts/${item.title}`}>
                 <div className="flex gap-x-3  ">
                   <div>
                     <Avatar
@@ -138,10 +139,10 @@ export default async function RecentPosts({ page, cat }) {
           </div>
 
           <div className="mt-[60px] ml-[48px]">Choosen by the Editor</div>
-          <div className="mt-[0px] ml-[48px] text-2xl"> Editor's Pick</div>
+          <div className="mt-[0px] ml-[48px] text-2xl"> Editor&apos;s Pick</div>
 
           {popular.map((item) => (
-            <Link href={`/posts/${item.title}`}>
+            <Link key={item.img} href={`/posts/${item.title}`}>
               <div className="flex gap-x-3 ml-[48px] ">
                 <div>
                   <Avatar

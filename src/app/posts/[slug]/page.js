@@ -16,7 +16,7 @@ const getData = async (slug) => {
   }
 };
 
-export default async function page({ params }) {
+export default async function Page({ params }) {
   const { slug } = params;
 
   const data = await getData(slug);

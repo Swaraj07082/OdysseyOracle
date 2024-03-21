@@ -21,7 +21,7 @@ export default function SinglePostSideBar({ postSlug, desc }) {
         </div>
 
         <div className="flex-[1.25] mt-[50px] lg:hidden ">
-          <div className="ml-12">What's hot</div>
+          <div className="ml-12">What&apos;s hot</div>
 
           <div className="flex flex-col gap-y-[25px] ml-12">
             <p className="text-2xl">Most Popular</p>
@@ -85,7 +85,7 @@ export default function SinglePostSideBar({ postSlug, desc }) {
           </div>
 
           <div className="mt-[60px] ml-[48px]">Choosen by the Editor</div>
-          <div className="mt-[0px] ml-[48px] text-2xl"> Editor's Pick</div>
+          <div className="mt-[0px] ml-[48px] text-2xl"> Editor&apos;s Pick</div>
 
           <div className="flex gap-x-3 ml-[48px] ">
             <div>
