@@ -4,7 +4,7 @@ import Link from "next/link";
 import fetchPonyfill from "fetch-ponyfill";
 
 const getData = async (slug) => {
-  const res = await fetchPonyfill().fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`, {
+  const res = await fetch('/api/posts', {
     cache: "no-store",
   });
 

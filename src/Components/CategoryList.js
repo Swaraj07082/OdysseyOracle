@@ -4,7 +4,7 @@ import { Avatar } from "@mui/material";
 import fetchPonyfill from "fetch-ponyfill";
 
 const getData = async () => { 
-  const res = await fetchPonyfill().fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/categories`, {
+  const res = await fetchPonyfill().fetch(`/api/categories`, {
     cache: "no-store",
   });
 

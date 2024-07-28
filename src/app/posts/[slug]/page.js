@@ -6,7 +6,7 @@ import Footer from "@/Components/Footer";
 import fetchPonyfill from "fetch-ponyfill";
 
 const getData = async (slug) => {
-  const res = await fetchPonyfill().fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/${slug}`, {
+  const res = await fetchPonyfill().fetch(`/api/posts/${slug}`, {
     cache: "no-store",
   });
 

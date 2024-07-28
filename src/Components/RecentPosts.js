@@ -8,7 +8,7 @@ import fetchPonyfill from "fetch-ponyfill";
 
 const getData = async (page, cat) => {
   const res = await fetchPonyfill().fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/posts?page=${page}&cat=${cat || ""}`,
+    `/api/posts?page=${page}&cat=${cat || ""}`,
     {
       cache: "no-store",
     }
@@ -20,7 +20,7 @@ const getData = async (page, cat) => {
     return res.json();
   }
 };
-export const dynamic = 'force-dynamic'
+export const dynamic = "force-dynamic";
 
 export default async function RecentPosts({ page, cat }) {
   const { posts, count, popular } = await getData(page, cat);
@@ -45,7 +45,7 @@ export default async function RecentPosts({ page, cat }) {
             {parseddata?.map((item) => (
               <div className="flex" key={item.img}>
                 <Image
-                alt="Image Not Found"
+                  alt="Image Not Found"
                   src={item.img}
                   height={400}
                   width={360}
